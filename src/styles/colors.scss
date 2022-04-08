@@ -1,0 +1,47 @@
+$studSup-colors: (
+  white: #FFFFFF,
+  white-disabled: transparentize(#FFFFFF, .5),
+  ghost-white: #F9FAFC,
+  ultra-light-grey: #F7F7F7,
+  light-grey: #DEDEDE,
+  grey: #7C8891,
+  grey-dark: #4d5459,
+  grey-disabled: transparentize(#7C8891, .5),
+  grey-inactive: #D0D0D0,
+  grey-scale: #C4C4C4,
+  black-muted: #142027,
+  black: #000000,
+  black-disabled: transparentize(#000000, .5),
+  blue: #007FC8,
+  pink: #FF4367,
+  dark-blue: #005F95,
+  dark-pink: #D93856,
+  red: #CB3F37,
+  orange: #FF9500,
+  yellow: #FFD800
+);
+
+$studSup-color-aliases: (
+  primary: blue,
+  primaryHover: dark-blue,
+  disabled: grey,
+  premium: pink,
+  accent: pink,
+  background: white,
+  error: error-red,
+  text: black,
+  textInverse: white
+);
+
+@function studSup-color($identifier: primary) {
+  @if map-has-key($studSup-color-aliases, $identifier) {
+    @return map-get($studSup-colors, map-get($studSup-color-aliases, $identifier));
+  }
+
+  @if map-has-key($studSup-colors, $identifier) {
+    @return map-get($studSup-colors, $identifier);
+  }
+
+  @error "Unsupported color name #{$identifier}";
+}
+

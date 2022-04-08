@@ -1,0 +1,104 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.studSup-footer {
+  background: studSup-color(black-muted);
+  display: block;
+  font-weight: 300;
+
+  @media (min-width: 1400px) {
+    height: 60px;
+  }
+
+  &, li {
+    color: studSup-color(textInverse);
+    font-size: 15px;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  a:not(.button) {
+    &,
+    &:active,
+    &:focus,
+    &:visited,
+    &:hover {
+      color: studSup-color(textInverse);
+    }
+  }
+
+  > * {
+    padding: 0 5%;
+
+    @media (min-width: 1100px) {
+      padding: 20px 100px;
+    }
+  }
+
+  > :last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    > :nth-child(1) {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    > :nth-child(2) {
+      margin: 30px 30px;
+
+      > :nth-child(2) {
+        margin-top: 30px;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+
+      > :nth-child(2) {
+        margin: 0;
+
+        > :nth-child(2) {
+          margin: 0;
+        }
+      }
+
+      > :nth-child(1) {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      flex-direction: row;
+    }
+
+    > ul {
+      list-style: none;
+
+      > li + li {
+        margin-top: 10px;
+      }
+
+      @media (min-width: 1100px) {
+        display: flex;
+
+        > li + li {
+          margin-top: 0;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}

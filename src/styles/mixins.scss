@@ -1,0 +1,58 @@
+@import "variables";
+
+@mixin mediaMobileOnly {
+  @media (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin mediaTabletOnly() {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin mediaTabletMin() {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin mediaTabletMax() {
+  @media (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin mediaDesktopMin() {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin mediaDesktopMax() {
+  @media (max-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin mediaDesktopLargeMin() {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin contentPaddingHorizontal {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@mixin contentPaddingVertical {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@mixin contentPaddingVerticalBig {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
