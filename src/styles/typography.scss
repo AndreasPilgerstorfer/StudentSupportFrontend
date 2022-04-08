@@ -1,0 +1,22 @@
+@import "variables";
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: $font-weight-normal;
+  font-display: swap;
+  src: local('Roboto Light'), local('Roboto-Light'), url(~/src/fonts/roboto-300.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  font-display: swap;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(~/src/fonts/roboto-700.woff2) format('woff2');
+}
+
+body {
+  font-family: Roboto, "San Francisco", BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
