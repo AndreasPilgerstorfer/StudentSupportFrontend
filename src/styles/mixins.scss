@@ -1,4 +1,5 @@
 @import "variables";
+@import "colors";
 
 @mixin mediaMobileOnly {
   @media (max-width: $screen-xs-max) {
@@ -55,4 +56,38 @@
 @mixin contentPaddingVerticalBig {
   padding-top: 60px;
   padding-bottom: 50px;
+}
+
+@mixin apply-typography($font-size-d,
+                       $font-size-m,
+                       $line-height-d,
+                       $line-height-m,
+                       $font-weight-d,
+                       $font-weight-m,
+                       $color-d,
+                       $color-m) {
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+  font-weight: $font-weight-m;
+  color: studSup-color($color-m);
+
+  @include mediaTabletMin {
+    font-size: $font-size-d;
+    line-height: $line-height-d;
+    font-weight: $font-weight-d;
+    color: studSup-color($color-d);
+  }
+}
+
+@mixin apply-spacing($margin-top-d,
+                    $margin-top-m,
+                    $margin-bottom-d,
+                    $margin-bottom-m) {
+  margin-top: $margin-top-m;
+  margin-bottom: $margin-bottom-m;
+
+  @include mediaTabletMin {
+    margin-top: $margin-top-d;
+    margin-bottom: $margin-bottom-d;
+  }
 }

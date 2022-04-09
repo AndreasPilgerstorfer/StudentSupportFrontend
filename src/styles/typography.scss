@@ -20,3 +20,54 @@ body {
   font-family: Roboto, "San Francisco", BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
+body, button {
+  font-family: $base-font;
+  @include apply-typography(15px, 15px, 22px, 22px, $font-weight-normal, $font-weight-normal, black, black);
+}
+
+input, select {
+  font-family: $base-font;
+  // Set font-size of input elements to 16px since Safari automatically zooms in if it is less than that
+  @include apply-typography(16px, 16px, 22px, 22px, $font-weight-normal, $font-weight-normal, black, black);
+}
+
+label {
+  @include apply-typography(17px, 15px, 25px, 22px, $font-weight-normal, $font-weight-normal, black, black);
+  @include apply-spacing(0, 0, 20px, 20px);
+}
+
+h1, .h1 {
+  @include apply-typography(45px, 28px, 47px, 30px, $font-weight-bold, $font-weight-bold, blue, blue);
+  @include apply-spacing(0, 0, 20px, 20px);
+
+  &.jumbo {
+    @include apply-typography(55px, 32px, 57px, 36px, $font-weight-normal, $font-weight-normal, blue, blue);
+    @include apply-spacing(0, 0, 50px, 20px);
+  }
+}
+
+h2 {
+  @include apply-typography(38px, 23px, 42px, 27px, $font-weight-normal, $font-weight-normal, blue, blue);
+  @include apply-spacing(0, 0, 40px, 20px);
+}
+
+h3 {
+  @include apply-typography(17px, 15px, 25px, 22px, $font-weight-bold, $font-weight-bold, black, black);
+  @include apply-spacing(0, 0, 20px, 20px);
+}
+
+h4, dt {
+  @include apply-typography(17px, 15px, 25px, 22px, $font-weight-bold, $font-weight-bold, black, black);
+  @include apply-spacing(0, 0, 5px, 5px);
+}
+
+p {
+  @include apply-spacing(0, 0, 20px, 20px);
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+
+
