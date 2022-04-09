@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TextInformationComponent } from './components/text-information/text-information.component';
+import { HeadingComponent } from './components/heading/heading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HomeComponent,
-    TextInformationComponent
+    TextInformationComponent,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,
