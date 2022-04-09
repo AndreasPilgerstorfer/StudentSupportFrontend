@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ss-header',
+  selector: 'studSup-header',
   templateUrl: './header.component.html',
   styleUrls: [
     "./header.component.scss"

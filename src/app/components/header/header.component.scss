@@ -9,6 +9,13 @@
   position: sticky;
   top: 0;
 
+  .hide-collapse-menu {
+
+    @media (min-width: 570px) {
+      display: none;
+    }
+  }
+
   nav {
     background-color: studSup-color(teal) !important;
 
@@ -16,7 +23,12 @@
       padding: 5px 40px;
 
       .navbar-brand {
-        padding-right: 20px;
+        padding-right: 0;
+        margin-right: 0;
+
+        @media (min-width: 570px) {
+          padding-right: 20px;
+        }
 
         .logo {
           width: 70px;

@@ -89,6 +89,7 @@
     top: 25px;
     width: 55px;
     height: 50px;
+    right: 40px;
   }
 
   .header__menu-menu {
@@ -135,6 +136,8 @@
   .hamburger__icon {
     width: 25px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
   }
 
   .hamburger__icon span {
