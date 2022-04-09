@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,18 +10,28 @@ import {Router} from "@angular/router";
 })
 export class TextInformationComponent implements OnInit {
 
-  public isImprint:boolean = false;
-  public isPrivacy:boolean = false;
-  public isCookieInfo:boolean = false;
+  public isImprint: boolean = false;
+  public isPrivacy: boolean = false;
+  public isCookieInfo: boolean = false;
+  public title: string | undefined;
 
   constructor(
-    private router:Router
+    private router: Router
   ) {
   }
 
   ngOnInit(): void {
-    if (this.router.url === "/imprint") this.isImprint = true;
-    if (this.router.url === "/privacy") this.isPrivacy = true;
-    if (this.router.url === "/cookie-information") this.isCookieInfo = true;
+    if (this.router.url === "/imprint") {
+      this.isImprint = true;
+      this.title = "Impressum";
+    }
+    if (this.router.url === "/privacy") {
+      this.isPrivacy = true;
+      this.title = "Datenschutz";
+    }
+    if (this.router.url === "/cookie-information") {
+      this.isCookieInfo = true;
+      this.title = "Cookie Information";
+    }
   }
 }

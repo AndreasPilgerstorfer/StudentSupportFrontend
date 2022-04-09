@@ -27,7 +27,6 @@ body, button {
 
 input, select {
   font-family: $base-font;
-  // Set font-size of input elements to 16px since Safari automatically zooms in if it is less than that
   @include apply-typography(16px, 16px, 22px, 22px, $font-weight-normal, $font-weight-normal, black, black);
 }
 
@@ -37,13 +36,8 @@ label {
 }
 
 h1, .h1 {
-  @include apply-typography(45px, 28px, 47px, 30px, $font-weight-bold, $font-weight-bold, blue, blue);
+  @include apply-typography(45px, 28px, 47px, 30px, $font-weight-bold, $font-weight-bold, black, black);
   @include apply-spacing(0, 0, 20px, 20px);
-
-  &.jumbo {
-    @include apply-typography(55px, 32px, 57px, 36px, $font-weight-normal, $font-weight-normal, blue, blue);
-    @include apply-spacing(0, 0, 50px, 20px);
-  }
 }
 
 h2 {

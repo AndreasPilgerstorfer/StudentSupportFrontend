@@ -33,7 +33,7 @@
   > * {
     padding: 0 5%;
 
-    @media (min-width: 1100px) {
+    @media (min-width: 950px) {
       padding: 20px 100px;
     }
   }
@@ -60,8 +60,8 @@
       }
     }
 
-    @media (min-width: 1100px) {
-      flex-direction: column;
+    @media (min-width: 950px) {
+      flex-direction: row;
       justify-content: space-between;
       gap: 20px;
 
@@ -91,7 +91,7 @@
         margin-top: 10px;
       }
 
-      @media (min-width: 1100px) {
+      @media (min-width: 950px) {
         display: flex;
 
         > li + li {

@@ -1,4 +1,168 @@
+<div class="text-information">
 
-<div *ngIf="isCookieInfo">Cookie</div>
-<div *ngIf="isPrivacy">Privacy</div>
-<div *ngIf="isImprint">Impressum</div>
+  <div class="container-fluid padding wrapper">
+    <ss-heading [title]="title"></ss-heading>
+    <div *ngIf="isImprint">
+      <p>Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz.</p>
+      <p>
+        Student Support GmbH <br>
+        Max Mustermann <br>
+        Musterstrasse 1, Stiege 1 Tür 1, <br>
+        1234 Musterhausen, <br>
+        Österreich <br>
+      </p>
+      <div>
+        <strong>Gewerbebehörde: </strong>Bezirkshauptmannschaft Musterhausen <br>
+        <strong>UID: </strong>123456789 <br>
+        <strong>GLN: </strong>123456 <br>
+        <strong>GISA: </strong>12359 <br>
+        <strong>Mitglied bei: </strong>WKO <br>
+      </div>
+      <br>
+
+      <p>
+        <strong>Kontaktdaten des Verantwortlichen für Datenschutz</strong><br>
+        Sollten Sie Fragen zum Datenschutz haben, finden Sie nachfolgend die Kontaktdaten der verantwortlichen Person bzw. Stelle:
+        <br>
+        Musterfirma GmbH <br>
+        Musterstraße 47, 12312 Musterstadt, Musterland <br>
+        Vertretungsberechtigt: Markus Mustermann <br>
+        E-Mail-Adresse: office@musterfirma.com <br>
+        Telefon: 01234/56789 <br>
+      </p>
+
+      <div>
+        <strong>EU-Streitschlichtung</strong> <br>
+        Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.
+        Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen Kommission unter http://ec.europa.eu/odr?tid=121890394 zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum.
+        <br><br>
+        Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        <br><br>
+      </div>
+
+      <div>
+        <strong>Haftung für Inhalte dieser Website</strong><br>
+        Wir entwickeln die Inhalte dieser Website ständig weiter und bemühen uns korrekte und aktuelle Informationen bereitzustellen.  Leider können wir keine Haftung für die Korrektheit aller Inhalte auf dieser Website übernehmen, speziell für jene, die seitens Dritter bereitgestellt wurden. Als Diensteanbieter sind wir nicht verpflichtet, die von ihnen übermittelten oder gespeicherten Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+        <br><br>
+        Unsere Verpflichtungen zur Entfernung von Informationen oder zur Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen aufgrund von gerichtlichen oder behördlichen Anordnungen bleiben auch im Falle unserer Nichtverantwortlichkeit davon unberührt.
+        <br><br>
+        Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitte wir Sie uns umgehend zu kontaktieren, damit wir die rechtswidrigen Inhalte entfernen können. Sie finden die Kontaktdaten im Impressum.
+        <br><br>
+      </div>
+
+      <div>
+        <strong>Haftung für Links auf dieser Website</strong><br>
+        Unsere Website enthält Links zu anderen Websites für deren Inhalt wir nicht verantwortlich sind. Haftung für verlinkte Websites besteht für uns nicht, da wir keine Kenntnis rechtswidriger Tätigkeiten hatten und haben, uns solche Rechtswidrigkeiten auch bisher nicht aufgefallen sind und wir Links sofort entfernen würden, wenn uns Rechtswidrigkeiten bekannt werden.
+        <br><br>
+        Wenn Ihnen rechtswidrige Links auf unserer Website auffallen, bitte wir Sie uns zu kontaktieren. Sie finden die Kontaktdaten im Impressum.
+        <br><br>
+      </div>
+    </div>
+    <div *ngIf="isPrivacy">
+      <div>
+        <strong>Grundlegendes</strong><br>
+        Diese Datenschutzerklärung soll die Nutzer dieser Website über die Art, den Umfang und
+        den Zweck der Erhebung und Verwendung personenbezogener Daten durch den
+        Websitebetreiber [Ihre Kontaktdaten einfügen] informieren. <br><br>
+        Der Websitebetreiber nimmt Ihren Datenschutz sehr ernst und behandelt Ihre
+        personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Vorschriften. Da
+        durch neue Technologien und die ständige Weiterentwicklung dieser Webseite Änderungen
+        an dieser Datenschutzerklärung vorgenommen werden können, empfehlen wir Ihnen sich die
+        Datenschutzerklärung in regelmäßigen Abständen wieder durchzulesen. <br><br>
+        Definitionen der verwendeten Begriffe (z.B. “personenbezogene Daten” oder “Verarbeitung”)
+        finden Sie in Art. 4 DSGVO. <br><br>
+      </div>
+
+      <div>
+        <strong>Zugriffsdaten</strong> <br>
+        Wir, der Websitebetreiber bzw. Seitenprovider, erheben aufgrund unseres berechtigten
+        Interesses (s. Art. 6 Abs. 1 lit. f. DSGVO) Daten über Zugriffe auf die Website und speichern
+        diese als „Server-Logfiles“ auf dem Server der Website ab. Folgende Daten werden so
+        protokolliert: <br> <br>
+        <ol>
+          <li>Besuchte Website</li>
+          <li>Uhrzeit zum Zeitpunkt des Zugriffes</li>
+          <li>Menge der gesendeten Daten in Byte</li>
+          <li>Quelle/Verweis, von welchem Sie auf die Seite gelangten</li>
+          <li>Verwendeter Browser</li>
+          <li>Verwendetes Betriebssystem</li>
+          <li>Verwendete IP-Adresse</li>
+        </ol>
+        <br><br>
+        Die Server-Logfiles werden für maximal 7 Tage gespeichert und anschließend gelöscht. Die
+        Speicherung der Daten erfolgt aus Sicherheitsgründen, um z. B. Missbrauchsfälle aufklären
+        zu können. Müssen Daten aus Beweisgründen aufgehoben werden, sind sie solange von der
+        Löschung ausgenommen bis der Vorfall endgültig geklärt ist. <br> <br>
+      </div>
+
+      <div>
+        <strong>Reichweitenmessung</strong> <br>
+        Diese Website verwendet Cookies zur pseudonymisierten Reichweitenmessung, die
+        entweder von unserem Server oder dem Server Dritter an den Browser des Nutzers übertragen werden. Bei Cookies handelt es sich um kleine Dateien, welche auf Ihrem
+        Endgerät gespeichert werden. Ihr Browser greift auf diese Dateien zu. Durch den Einsatz
+        von Cookies erhöht sich die Benutzerfreundlichkeit und Sicherheit dieser Website. <br> <br>
+        Gängige Browser bieten die Einstellungsoption, Cookies nicht zuzulassen. Hinweis: Es ist
+        nicht gewährleistet, dass Sie auf alle Funktionen dieser Website ohne Einschränkungen
+        zugreifen können, wenn Sie entsprechende Einstellungen vornehmen. <br> <br>
+        Erfassung und Verarbeitung personenbezogener Daten <br> <br>
+        Der Websitebetreiber erhebt, nutzt und gibt Ihre personenbezogenen Daten nur dann weiter,
+        wenn dies im gesetzlichen Rahmen erlaubt ist oder Sie in die Datenerhebung einwilligen.
+        Als personenbezogene Daten gelten sämtliche Informationen, welche dazu dienen, Ihre
+        Person zu bestimmen und welche zu Ihnen zurückverfolgt werden können – also
+        beispielsweise Ihr Name, Ihre E-Mail-Adresse und Telefonnummer. <br> <br>
+        Diese Website können Sie auch besuchen, ohne Angaben zu Ihrer Person zu machen. Zur
+        Verbesserung unseres Online-Angebotes speichern wir jedoch (ohne Personenbezug) Ihre
+        Zugriffsdaten auf diese Website. Zu diesen Zugriffsdaten gehören z. B. die von Ihnen
+        angeforderte Datei oder der Name Ihres Internet-Providers. Durch die Anonymisierung der
+        Daten sind Rückschlüsse auf Ihre Person nicht möglich. <br> <br>
+      </div>
+
+    </div>
+    <div *ngIf="isCookieInfo">
+
+      <div>
+        <strong>Cookies</strong><br>
+        In der Europäischen Union soll die Richtlinie 2009/136/EG den Schutz personenbezogener Daten bei Website-Besuchen gewährleisten und stärken. Die 2009 erlassene EU-Cookie-Richtlinie sollte spätestens im Jahr 2011 von allen Mitgliedsstaaten umgesetzt werden – was so allerdings nicht geschah.
+        <br><br>
+        Die Cookie-Richtlinie sieht im Wesentlichen vor, dass die Besucher einer Website über den Einsatz von Cookies in einer leicht verständlichen Form informiert werden und der Speicherung zustimmen müssen. Cookies dürfen laut der Richtlinie nur dann ungefragt gesetzt werden, wenn sie technisch notwendig sind – also beispielsweise um einen durch den Nutzer erwünschten Dienst umzusetzen. Hierzu zählen etwa Session-Cookies zur Speicherung der Spracheinstellung, der Log-in-Daten und des Warenkorbs oder Flash-Cookies zur Wiedergabe von Medieninhalten.
+        <br><br>
+        Für die Anwendung der meisten Cookies benötigen Website-Betreiber jedoch eine Zustimmung der Nutzer. Das betrifft alle Cookies, die technisch nicht notwendig für das Funktionieren des Internetangebots sind. Vor allem Werbe-Cookies, die für das Retargeting genutzt werden, aber auch Analyse- und Social-Media-Cookies zählen hierzu. Die EU-Richtlinie gibt allerdings nicht vor, wie die genannten Auflagen genau umzusetzen sind. Vor allem hinsichtlich der Einverständniserklärung durch Website-Besucher herrscht Ungewissheit.
+        <br><br>
+        Ein Cookie ist eine kleine Textdatei, die beim Besuch einer Internetpräsenz auf Ihrem Computer oder mobilen Gerät gespeichert wird.
+        <br><br>
+        Die von Ihnen besuchte Website setzt sogenannte Cookies von Erstanbietern. Nur sie kann diese Cookies lesen. Möglicherweise nutzt sie aber Dienste externer Anbieter, die wiederum eigene Cookies setzen, sogenannte Cookies von Drittanbietern
+        Beständige Cookies werden auf Ihrem Computer gespeichert und nach dem Schließen des Browsers nicht automatisch gelöscht; der Sitzungscookie hingegen wird nach Beendigung Ihrer Sitzung gelöscht.
+        Jedes Mal, wenn Sie die Websites der Kommission besuchen, werden Sie aufgefordert, Cookies zu akzeptieren oder abzulehnen.
+        <br><br>
+        Mithilfe der Cookies kann sich die Website Ihre Einstellungen (wie Benutzername, Sprache usw.) für einen bestimmten Zeitraum merken.
+        <br><br>
+        Dadurch brauchen Sie diese beim Navigieren auf der Website während desselben Besuchs nicht erneut vorzunehmen.
+        <br><br>
+        Cookies können auch zur Erstellung anonymisierter Statistiken über die Browsing-Aktivitäten unserer Website-Besucher verwendet werden.
+      </div>
+      <br>
+      <div>
+        <strong>Drittanbieter</strong><br>
+        Wir übermitteln personenbezogene Daten an Drittanbieter, die uns helfen, unser Webangebot zu verbessern und
+        zu finanzieren. In diesem Zusammenhang werden auch Nutzungsprofile
+        (u.a. auf Basis von Cookie-IDs) gebildet und angereichert, auch außerhalb des EWR. Hierfür und
+        um bestimmte Dienste zu nachfolgend aufgeführten Zwecken verwenden zu dürfen, benötigen
+        wir Ihre Einwilligung. Indem Sie "Alle akzeptieren" klicken, stimmen Sie diesen (jederzeit widerruflich) zu.
+        Dies umfasst auch Ihre Einwilligung in die Übermittlung bestimmter personenbezogener Daten in Drittländer,
+        u.a. die USA, nach Art. 49 (1) (a) DSGVO. Unter "Einstellungen" können Sie Ihre Einstellungen ändern.
+        Sie können Ihre Auswahl jederzeit unter "Datenschutzerklärung“ im Abschnitt "Cookies" ändern. <br> <br>
+      </div>
+
+      <div>
+        <strong>Personalisierte Anzeigen</strong> <br>
+        Anzeigen und Inhalte können basierend auf einem Profil personalisiert werden. Es können mehr
+        Daten hinzugefügt werden, um Anzeigen und Inhalte besser zu personalisieren. Die Performance
+        von Anzeigen und Inhalten kann gemessen werden. Erkenntnisse über Zielgruppen, die die Anzeigen
+        und Inhalte betrachtet haben, können abgeleitet werden. Daten können verwendet werden, um
+        Benutzerfreundlichkeit, Systeme und Software aufzubauen oder zu verbessern. <br><br>
+      </div>
+
+    </div>
+  </div>
+
+</div>
