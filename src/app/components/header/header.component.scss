@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.page-header {
+  background-color: studSup-color(teal);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+
+  position: sticky;
+  top: 0;
+
+  nav {
+    background-color: studSup-color(teal) !important;
+
+    .container-fluid {
+      padding: 5px 40px;
+
+      .navbar-brand {
+        padding-right: 20px;
+
+        .logo {
+          width: 70px;
+        }
+      }
+
+      .nav-link {
+        color: black;
+        font-weight: $font-weight-bold;
+
+        &:hover {
+          color: studSup-color(orange);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+

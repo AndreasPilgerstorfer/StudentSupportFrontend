@@ -9,6 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TextInformationComponent } from './components/text-information/text-information.component';
 import { HeadingComponent } from './components/heading/heading.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { HeadingComponent } from './components/heading/heading.component';
     FooterComponent,
     HomeComponent,
     TextInformationComponent,
-    HeadingComponent
+    HeadingComponent,
+    HeaderComponent,
+    ProfileIconComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

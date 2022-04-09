@@ -1,0 +1,22 @@
+<div class="header__menu-wrapper profile-icon">
+  <input type="checkbox" class="header__menu-toggler" id="toggler" />
+  <div class="header__menu">
+    <label for="toggler" class="hamburger__icon absolute-center">
+      <fa-icon [icon]="userIcon" class="large-icon"></fa-icon>
+    </label>
+    <ul role="menu" class="header__menu-menu menu" *ngIf="!isLoggedIn">
+      <li role="menuitem" class="menu__item">
+        <a class="header__title link header__link profile-link" routerLink="/login">Log In</a>
+      </li>
+    </ul>
+    <ul role="menu" class="header__menu-menu menu" *ngIf="isLoggedIn">
+      <li role="menuitem" class="menu__item">
+        <a class="header__title link header__link profile-link" routerLink="/login">Logout</a>
+      </li>
+      <hr/>
+      <li role="menuitem" class="menu__item">
+        <a class="header__title link header__link profile-link" routerLink="/profile">Profil</a>
+      </li>
+    </ul>
+  </div>
+</div>
