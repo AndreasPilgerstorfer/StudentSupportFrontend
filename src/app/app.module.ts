@@ -15,6 +15,8 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
 import { BannerComponent } from './components/banner/banner.component';
 import { ArticleComponent } from './components/article/article.component';
 import { LvaOverviewComponent } from './components/lva-overview/lva-overview.component';
+import {CourseService} from "./shared/course.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { LvaOverviewComponent } from './components/lva-overview/lva-overview.com
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

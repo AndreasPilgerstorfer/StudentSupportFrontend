@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CourseService} from "../../shared/course.service";
+import {Course} from "../../shared/course";
 
 @Component({
   selector: 'lva-overview',
@@ -10,11 +12,16 @@ import {Component, OnInit} from '@angular/core';
 export class LvaOverviewComponent implements OnInit {
 
   public title = "LVA Übersicht";
+  public courses: Course[] = [];
 
-  constructor() {
+  constructor(
+    private cs: CourseService
+  ) {
   }
 
   ngOnInit(): void {
+    this.cs.getAll().subscribe(res => {
+      this.courses = res;
+    });
   }
-
 }
