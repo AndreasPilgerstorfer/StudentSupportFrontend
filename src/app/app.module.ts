@@ -18,6 +18,7 @@ import { LvaOverviewComponent } from './components/lva-overview/lva-overview.com
 import {CourseService} from "./shared/course.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { LvaOverviewItemComponent } from './components/lva-overview-item/lva-overview-item.component';
+import { LvaDetailComponent } from './components/lva-detail/lva-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LvaOverviewItemComponent } from './components/lva-overview-item/lva-ove
     BannerComponent,
     ArticleComponent,
     LvaOverviewComponent,
-    LvaOverviewItemComponent
+    LvaOverviewItemComponent,
+    LvaDetailComponent
   ],
   imports: [
     BrowserModule,
