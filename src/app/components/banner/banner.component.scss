@@ -11,7 +11,7 @@
     background-image: url(~src/assets/img/banner/home-banner.jpg);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 100vw auto;
+    background-size: auto auto;
     box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
 
     .container {
@@ -44,6 +44,7 @@
         &:hover, &:focus {
           background: studSup-color(dark-orange);
           border-color: studSup-color(dark-orange);
+          color: white;
         }
 
         span {
@@ -58,10 +59,15 @@
 
   @media (min-width: 768px) {
     header.masthead {
-
       .logo-sizing {
         height: 300px;
       }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    header.masthead {
+      background-size: 100vw auto;
     }
   }
 }
