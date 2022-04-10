@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'ss-heading',
+  selector: 'studSup-heading',
   templateUrl: './heading.component.html',
   styleUrls: [
     "./heading.component.scss"
