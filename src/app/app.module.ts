@@ -12,6 +12,7 @@ import { HeadingComponent } from './components/heading/heading.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
     TextInformationComponent,
     HeadingComponent,
     HeaderComponent,
-    ProfileIconComponent
+    ProfileIconComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
