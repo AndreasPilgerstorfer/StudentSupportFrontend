@@ -1,0 +1,21 @@
+<div class="lva-overview-item" id="{{course?.id}}">
+  <a [routerLink]="'./' + course?.id" >
+    <div class="card h-100 bg-light">
+      <div class="img-hover">
+        <img [src]="course?.image?.url" alt="<%>name<%>" class="card-img-top"/>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{course?.title}}</h4>
+
+        <p class="card-text"><strong class="info-text">Info:</strong> {{cropText(course!.description)}} </p>
+        <p class="card-text"><strong>Klicken um Angebote zu sehen</strong></p>
+
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        <small class="text-muted">
+          <strong>Nummer:</strong> {{course?.number}}
+        </small>
+      </div>
+    </div>
+  </a>
+</div>

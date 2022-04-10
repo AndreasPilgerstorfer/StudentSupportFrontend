@@ -17,6 +17,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { LvaOverviewComponent } from './components/lva-overview/lva-overview.component';
 import {CourseService} from "./shared/course.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { LvaOverviewItemComponent } from './components/lva-overview-item/lva-overview-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     ProfileIconComponent,
     BannerComponent,
     ArticleComponent,
-    LvaOverviewComponent
+    LvaOverviewComponent,
+    LvaOverviewItemComponent
   ],
   imports: [
     BrowserModule,

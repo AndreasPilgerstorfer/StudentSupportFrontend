@@ -1,5 +1,14 @@
 <div class="container-fluid padding wrapper lva-overview">
   <studSup-heading [title]="title"></studSup-heading>
 
-  {{this.courses}}
+  <div *ngIf="!courses" class="ui active dimmer">
+    <div class="ui large text loader"></div>
+  </div>
+
+  <p *ngIf="courses && !courses.length">Es wurden noch keine LVAs eingetragen.</p>
+
+  <!-- hier kommen die Kurse/LVAs rein -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let course of courses" class="col course studSup-lva-overview-item" [course]="course"></div>
+  </div>
 </div>
