@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-
+import {Component, OnInit} from '@angular/core';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'profile-icon',

@@ -1,0 +1,129 @@
+.login {
+  min-height: 84.442vh;
+
+  &.wrapper {
+    max-height: 84.44vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+  }
+
+  .user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: teal;
+    position: relative;
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+  }
+
+  .brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 100%;
+    background: #f39c12 !important;;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: white;
+  }
+
+  .form_container {
+    margin-top: 100px;
+  }
+
+  .login_btn {
+    width: 100%;
+    background: #f39c12 !important;
+    color: white !important;
+    font-weight: 600;
+  }
+
+  .login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+
+  .login_btn:hover{
+    background-color: black !important;
+
+  }
+
+  .login_container {
+    padding: 0 2rem;
+  }
+
+  .input-group-text {
+    background: #f39c12 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+    height: 52px;
+  }
+
+  .input_user,
+  .input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+
+  .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #f39c12 !important;
+  }
+
+  @media (max-width: 490px) {
+    .user_card{
+      margin-top: 20%;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .user_card{
+      margin-top: 25%;
+    }
+  }
+
+  input{
+    background-color: white;
+
+    &:active{
+      border: #f39c12;
+    }
+    &:focus{
+      border: #f39c12;
+    }
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    font-size: 16px;
+  }
+  element:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  .loginBox {
+    margin-top: 50px;
+  }
+}
