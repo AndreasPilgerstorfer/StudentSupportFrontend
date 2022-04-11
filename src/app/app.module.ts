@@ -20,6 +20,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { LvaOverviewItemComponent } from './components/lva-overview-item/lva-overview-item.component';
 import { LvaDetailComponent } from './components/lva-detail/lva-detail.component';
 import { LoginComponent } from './components/login/login.component';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginComponent } from './components/login/login.component';
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [CourseService],
   bootstrap: [AppComponent]
