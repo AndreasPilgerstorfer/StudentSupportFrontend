@@ -20,6 +20,11 @@ export class CourseService {
     return this.http.get<Array<Course>>(`${this.api}/courses`).pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  //get one course
+  getSingle(id: String): Observable<Course> {
+    return this.http.get<Course>(`${this.api}/courses/${id}`).pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   //Error
   errorHandler(error: Error | any): Observable<any> {
     return throwError(error)
