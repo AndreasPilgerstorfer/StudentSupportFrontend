@@ -1,3 +1,7 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
 .login {
   min-height: 84.442vh;
 
@@ -54,7 +58,7 @@
   .login_btn {
     width: 100%;
     background: #f39c12 !important;
-    color: white !important;
+    color: black !important;
     font-weight: 600;
   }
 
@@ -64,8 +68,8 @@
   }
 
   .login_btn:hover{
-    background-color: black !important;
-
+    background-color: studSup-color(dark-orange) !important;
+    color: white !important;
   }
 
   .login_container {
