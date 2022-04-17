@@ -1,0 +1,13 @@
+<div class="container-fluid padding wrapper offer-overview">
+
+  <div *ngIf="!offers" class="ui active dimmer">
+    <div class="ui large text loader"></div>
+  </div>
+
+  <p *ngIf="offers && offers.length == 0">Es wurden noch keine Angebote eingetragen.</p>
+
+  <!-- hier kommen die Angebote rein -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let offer of offers" class="col course studSup-offer-overview-item" [offer]="offer"></div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="offer-overview-item" id="{{offer?.id}}">
+  <a [routerLink]="'../../offer/' + offer?.id" >
+    <div class="card h-100 bg-light">
+      <div class="img-hover">
+        <img [src]="offer?.image?.url" alt="<%>name<%>" class="card-img-top"/>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{offer?.title}}</h4>
+
+        <p class="card-text"><strong class="info-text">Info:</strong> {{cropText(offer!.description)}} </p>
+        <p class="card-text"><strong>Klicken um Details zu sehen</strong></p>
+
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        <small class="text-muted">
+          <strong>Von:</strong> {{offer?.start_time}}
+          <strong>Bis:</strong> {{offer?.end_time}}
+        </small>
+      </div>
+    </div>
+  </a>
+</div>

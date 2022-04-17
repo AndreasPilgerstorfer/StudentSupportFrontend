@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.offer-overview-item {
+  img {
+    height: 270px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .info-text {
+    color: studSup-color(orange);
+  }
+}
+
+
+
+
