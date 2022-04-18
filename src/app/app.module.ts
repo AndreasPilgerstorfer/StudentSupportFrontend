@@ -25,6 +25,7 @@ import {ToastrModule} from "ngx-toastr";
 import {OfferOverviewComponent} from './components/offer-overview/offer-overview.component';
 import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
 import { OfferOverviewItemComponent } from './components/offer-overview-item/offer-overview-item.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { OfferOverviewItemComponent } from './components/offer-overview-item/off
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [CourseService, OfferService],
   bootstrap: [AppComponent]
