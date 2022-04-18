@@ -45,13 +45,14 @@
       <h3 class="card-header">Angebots Information</h3>
       <div class="card-body">
         <p class="card-text">{{offer.description}}</p>
+        <p class="card-text"><strong>Angebotstatus:</strong> {{offer.state}}</p>
         <p class="card-text"><strong>Datum:</strong> {{offer.date}}</p>
         <p class="card-text"><strong>Dauer:</strong> von {{offer.start_time}} bis {{offer.end_time}}</p>
       </div>
     </div>
   </div>
 
-  <!-- Contact Form -->
+  <!-- Message Form -->
   <div class="mb-5 mt-2">
 
     <form [formGroup]="messageForm" (ngSubmit)="submitMessageForm()">
@@ -69,10 +70,9 @@
         <div *ngIf="errors['text']" class="ui negative message"> {{errors['text']}}</div>
       </div>
 
-      <button type="submit" class="mt-3 px-3 btn btn--primary custom-btn" [disabled]="messageForm.invalid">Absenden</button>
-
+      <button type="submit" class="mt-3 px-3 btn btn--primary custom-btn"
+              [disabled]="messageForm.invalid">Absenden</button>
     </form>
   </div>
 
-
-  </div>
+</div>
