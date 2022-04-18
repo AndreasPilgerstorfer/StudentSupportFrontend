@@ -5,6 +5,7 @@ import {TextInformationComponent} from "./components/text-information/text-infor
 import {LvaOverviewComponent} from "./components/lva-overview/lva-overview.component";
 import {LvaDetailComponent} from "./components/lva-detail/lva-detail.component";
 import {LoginComponent} from "./components/login/login.component";
+import {OfferDetailComponent} from "./components/offer-detail/offer-detail.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'lva-overview', component: LvaOverviewComponent},
   {path: 'lva-overview/:lva-id', component: LvaDetailComponent},
+  {path: 'offer/:offer-id', component: OfferDetailComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ]
 

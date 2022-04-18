@@ -1,0 +1,36 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.offer-detail {
+
+  .spacing-left {
+    margin-left: 5px;
+  }
+
+  strong{
+    color: studSup-color(orange);
+  }
+
+  &.wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+  }
+
+  .card-background {
+    @media (min-width: 820px) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: darkgrey;
+    }
+
+    .card-img {
+      @media (min-width: 820px) {
+        max-width: 50%;
+        height: 100%;
+      }
+    }
+  }
+}

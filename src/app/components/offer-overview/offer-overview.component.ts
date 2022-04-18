@@ -24,7 +24,7 @@ export class OfferOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.os.getAllOpenCourses(this.params['lva-id']).subscribe(res => {
+    this.os.getAllOpenOffers(this.params['lva-id']).subscribe(res => {
       this.offers = res;
     });
   }
