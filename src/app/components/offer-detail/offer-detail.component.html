@@ -9,10 +9,35 @@
       <a [routerLink]="'../../lva-overview/' + offer.course.id" class="btn btn-outline-dark btn-lg mb-4" id="back">Zurück</a>
     </div>
     <div class="spacing-left">
-      <a [routerLink]="'../../login'" class="btn btn-outline-dark btn-lg mb-4">Login für Anfrage</a>
+      <a [routerLink]="'../../login'"
+         class="btn btn-outline-dark btn-lg mb-4">Login für Anfrage</a>
     </div>
-    <div class="spacing-left">
-      <a class="btn btn-outline-dark btn-lg mb-4">Annahme</a>
+    <div class="spacing-left" *ngIf="offer.state == 'open'">
+      <a class="btn btn-outline-dark btn-lg mb-4"
+         data-bs-toggle="modal" data-bs-target="#exampleModal">Anfrage</a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong>Anfrage</strong></h5>
+          <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Möchtest du eine Anfrage für dieses Angebot stellen ? <br>
+          Die lehrende Person muss diese anschließend noch bestätigen.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sendRequest()">Absenden</button>
+        </div>
+      </div>
     </div>
   </div>
 

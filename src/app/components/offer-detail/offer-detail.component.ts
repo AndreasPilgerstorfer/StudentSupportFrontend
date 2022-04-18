@@ -13,6 +13,7 @@ import {Message} from "../../shared/message";
 import {MessageFormErrorMessages} from "./message-form-error-message";
 import {MessageService} from "../../shared/message.service";
 import {ToastrService} from "ngx-toastr";
+import {RequestService} from "../../shared/request.service";
 
 
 @Component({
@@ -37,6 +38,7 @@ export class OfferDetailComponent implements OnInit {
     private os: OfferService,
     private us: UserService,
     private ms: MessageService,
+    private rs: RequestService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private toastr: ToastrService
@@ -96,6 +98,22 @@ export class OfferDetailComponent implements OnInit {
       this.message = MessageFactory.empty();
       this.messageForm.reset(this.message);
       this.toastr.success("Nachricht erfolgreich gesendet.", "Gesendet");
+    });
+  }
+
+  sendRequest() {
+    // TODO Change hardcoded user id - should be logged in user
+    let request = {
+      id: 0,
+      user_id: 1,
+      offer_id: this.offer.id,
+      state: "pending"
+    };
+
+    console.log(request);
+
+    this.rs.create(request).subscribe(res => {
+      this.toastr.success("Anfrage erfolgreich gesendet.", "Gesendet");
     });
   }
 }

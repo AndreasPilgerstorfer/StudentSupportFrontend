@@ -1,4 +1,3 @@
-import {Course} from "./course";
 import {Offer} from "./offer";
 
 export class OfferFactory {
