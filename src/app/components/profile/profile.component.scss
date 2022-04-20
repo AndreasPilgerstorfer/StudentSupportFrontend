@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.profile {
+  &.wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+  }
+
+  .card-background {
+    @media (min-width: 820px) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: darkgrey;
+    }
+
+    .card-img {
+      @media (min-width: 820px) {
+        max-width: 50%;
+        height: 100%;
+      }
+    }
+  }
+
+  strong{
+    color: studSup-color(orange);
+  }
+
+  .studSup-profile-offer-overview-item-student {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .sub-heading {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+}

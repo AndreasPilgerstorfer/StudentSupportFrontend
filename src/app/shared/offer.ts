@@ -12,6 +12,7 @@ export class Offer {
     public title: string,
     public description: string,
     public state: string,
+    public associatedUser: any,
     public course: Course,
     public image: Image,
     public user: User,

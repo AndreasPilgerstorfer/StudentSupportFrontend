@@ -26,6 +26,8 @@ import {OfferOverviewComponent} from './components/offer-overview/offer-overview
 import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
 import { OfferOverviewItemComponent } from './components/offer-overview-item/offer-overview-item.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileStudentOfferOverviewItemComponent } from './components/profile-student-offer-overview-item/profile-student-offer-overview-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     OfferOverviewComponent,
     OfferDetailComponent,
-    OfferOverviewItemComponent
+    OfferOverviewItemComponent,
+    ProfileComponent,
+    ProfileStudentOfferOverviewItemComponent,
   ],
   imports: [
     BrowserModule,

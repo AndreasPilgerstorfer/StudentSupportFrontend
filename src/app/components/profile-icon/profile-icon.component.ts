@@ -10,7 +10,8 @@ import {faUser} from '@fortawesome/free-solid-svg-icons';
 })
 export class ProfileIconComponent implements OnInit {
 
-  public isLoggedIn = false;
+  //TODO: Change to Dynamic Value
+  public isLoggedIn = true;
   public userIcon = faUser;
 
   constructor() {

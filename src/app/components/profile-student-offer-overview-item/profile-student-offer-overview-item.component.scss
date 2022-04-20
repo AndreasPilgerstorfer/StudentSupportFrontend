@@ -1,0 +1,35 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.profile-student-offer-overview-item {
+  color: black;
+  text-decoration: none;
+
+  &:hover{
+    color: white;
+  }
+
+  .card:hover {
+    background-color: studSup-color(orange) !important;
+  }
+
+  .card-text{
+    margin-left: 10px;
+  }
+
+  .card-title-profile {
+    margin-bottom: 0 !important;
+    font-weight: bold;
+  }
+
+  .icon-spacing {
+    margin-left: 2px;
+    margin-right: 5px;
+  }
+
+  .custom-state-area {
+    padding: 5px;
+    border: 2px solid black;
+  }
+}

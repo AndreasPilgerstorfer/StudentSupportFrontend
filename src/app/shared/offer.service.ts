@@ -28,6 +28,12 @@ export class OfferService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  // get all offer by userID student
+  findByAssociatedStudent(id: any): Observable<Array<Offer>> {
+    return this.http.get<Array<Offer>>(`${this.api}/findByUserIDStudent/${id}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   //Error
   errorHandler(error: Error | any): Observable<any> {
     return throwError(error)
