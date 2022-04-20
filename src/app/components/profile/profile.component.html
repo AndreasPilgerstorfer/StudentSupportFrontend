@@ -36,7 +36,7 @@
   </div>
 
   <!-- Student Offer Overview -->
-  <div>
+  <div *ngIf="isStudent">
     <h3 class="card-header sub-heading"><strong>Nachhilfekurse</strong> - Historie</h3>
 
     <div class="container-fluid padding profile-offer-overview">
@@ -53,5 +53,23 @@
       </div>
     </div>
   </div>
+
+  <!-- Teacher Message Overview -->
+  <div *ngIf="!isStudent">
+    <h3 class="card-header sub-heading"><strong>Benachrichtigungen</strong></h3>
+
+    <div class="container-fluid padding profile-offer-overview">
+
+      <p *ngIf="messages && messages.length == 0">Du hast keine neuen Benachrichtigungen.</p>
+
+      <!-- hier kommen die Angebote rein -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let message of messages" (reloadMessages)="getTeacherMessages()"
+             class="studSup-message-overview-item" [message]="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teacher Request Overview -->
 
 </div>

@@ -1,0 +1,71 @@
+<div class="studSup-message-overview-item-div">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex">
+        <p class="card-title-profile">{{message?.title}}</p>
+        <p class="card-text">{{cropText(message?.text)}}</p>
+      </div>
+      <div class="btn-container">
+        <a class="custom-button" data-bs-toggle="modal"
+           [attr.data-bs-target]="'#messageModal' + message?.id">Lesen</a>
+        <a class="custom-button spacing" [routerLink]="'../offer/' + message?.offer?.id">Zum Angebot</a>
+        <a [attr.data-bs-target]="'#messageModalDelete' + message?.id" data-bs-toggle="modal"
+          class="custom-button" >Entfernen</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nachricht lesen -->
+<div class="modal fade" [id]="'messageModal' + message?.id" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <strong>{{message?.title}}</strong>
+        </h5>
+        <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{message?.text}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-primary" [routerLink]="'../offer/' + message?.offer?.id"
+                data-bs-dismiss="modal" >Zum Angebot</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<div class="modal fade" [id]="'messageModalDelete' + message?.id" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">
+          <strong>Nachricht löschen</strong>
+        </h5>
+        <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Möchtest du diese Nachricht löschen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-primary" (click)="deleteMessage(message?.id)"
+                data-bs-dismiss="modal">Löschen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
