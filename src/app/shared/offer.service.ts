@@ -34,6 +34,12 @@ export class OfferService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  //update Offer
+  updateOffer(id: any, requestBody: any) {
+    return this.http.put(`${this.api}/${id}`, requestBody)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   //Error
   errorHandler(error: Error | any): Observable<any> {
     return throwError(error)

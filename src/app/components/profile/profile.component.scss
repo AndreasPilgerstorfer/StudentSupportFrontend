@@ -29,7 +29,9 @@
     color: studSup-color(orange);
   }
 
-  .studSup-profile-offer-overview-item-student, .studSup-message-overview-item {
+  .studSup-profile-offer-overview-item-student,
+  .studSup-message-overview-item,
+  .studSup-request-overview-item {
     padding-right: 0;
     padding-left: 0;
     width: 100%;

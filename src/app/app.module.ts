@@ -29,6 +29,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileStudentOfferOverviewItemComponent } from './components/profile-student-offer-overview-item/profile-student-offer-overview-item.component';
 import { MessageOverviewItemComponent } from './components/message-overview-item/message-overview-item.component';
+import { RequestOverviewItemComponent } from './components/request-overview-item/request-overview-item.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MessageOverviewItemComponent } from './components/message-overview-item
     ProfileComponent,
     ProfileStudentOfferOverviewItemComponent,
     MessageOverviewItemComponent,
+    RequestOverviewItemComponent,
   ],
   imports: [
     BrowserModule,

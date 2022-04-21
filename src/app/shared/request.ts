@@ -1,10 +1,13 @@
+import {User} from "./user";
+import {Offer} from "./offer";
+
 export class RequestClass {
 
   constructor(
-    id: number,
-    offer_id: number,
-    user_id: number,
-    state: string
+    public id: number,
+    public offer: Offer,
+    public user: User,
+    public state: string
   ) {
   }
 }

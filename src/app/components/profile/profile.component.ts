@@ -4,9 +4,11 @@ import {User} from "../../shared/user";
 import {UserFactory} from "../../shared/user-factory";
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
 import {Offer} from "../../shared/offer";
+import {RequestClass as Request} from "../../shared/request";
 import {OfferService} from "../../shared/offer.service";
 import {Message} from "../../shared/message";
 import {MessageService} from "../../shared/message.service";
+import {RequestService} from "../../shared/request.service";
 
 @Component({
   selector: 'studSup-profile',
@@ -20,6 +22,7 @@ export class ProfileComponent implements OnInit {
   public user: User = UserFactory.empty();
   public offers: Offer[] = [];
   public messages: Message[] = [];
+  public requests: Request[] = [];
   public emailIcon = faEnvelope;
   public telephoneIcon = faPhone;
   public isStudent = false;
@@ -27,6 +30,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private us: UserService,
     private os: OfferService,
+    private rs: RequestService,
     private ms: MessageService
   ) {
   }
@@ -38,8 +42,8 @@ export class ProfileComponent implements OnInit {
     if (this.isStudent) {
       this.getStudentOffers();
     } else {
-      this.getTeacherRequests();
       this.getTeacherMessages();
+      this.getPendingTeacherRequests();
     }
   }
 
@@ -64,9 +68,11 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  getTeacherRequests() {
+  getPendingTeacherRequests() {
     //TODO Remove Hardcoded user id
-
+    this.rs.getPendingByTeacherId(3).subscribe(res => {
+      this.requests = res;
+    });
   }
 
   logout() {

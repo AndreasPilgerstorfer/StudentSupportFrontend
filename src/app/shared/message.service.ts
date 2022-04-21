@@ -27,7 +27,7 @@ export class MessageService {
 
   //Get All Messages for a Teacher ID
   getByTeacherId(id: number) {
-    return this.http.get<Message>(`${this.api}/findByTeacherID/${id}`)
+    return this.http.get<Array<Message>>(`${this.api}/findByTeacherID/${id}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

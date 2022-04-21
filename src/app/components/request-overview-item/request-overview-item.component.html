@@ -1,71 +1,72 @@
-<div class="studSup-message-overview-item-div">
+<div class="studSup-request-overview-item-div">
 
   <div class="card">
     <div class="card-body">
       <div class="d-flex">
-        <p class="card-title-profile">{{message?.title}}</p>
-        <p class="card-text">{{cropText(message?.text)}}</p>
+        <p class="card-title-profile">{{request?.user?.firstname}} {{request?.user?.lastname}}</p>
+        <p class="card-text">{{request?.offer?.title}}</p>
       </div>
       <div class="btn-container">
         <a class="custom-button" data-bs-toggle="modal"
-           [attr.data-bs-target]="'#messageModal' + message?.id">Lesen</a>
-        <a class="custom-button spacing" [routerLink]="'../offer/' + message?.offer?.id">Zum Angebot</a>
-        <a [attr.data-bs-target]="'#messageModalDelete' + message?.id" data-bs-toggle="modal"
-          class="custom-button" >Löschen</a>
+           [attr.data-bs-target]="'#requestModal' + request?.id">Zusage</a>
+        <a class="custom-button spacing" [routerLink]="'../offer/' + request?.offer?.id">Zum Angebot</a>
+        <a [attr.data-bs-target]="'#requestModalDecline' + request?.id" data-bs-toggle="modal"
+           class="custom-button">Ablehnen</a>
       </div>
     </div>
   </div>
 
-  <!-- Nachricht lesen -->
-  <div class="modal fade" [id]="'messageModal' + message?.id" tabindex="-1" role="dialog"
+  <!-- Request akzeptieren -->
+  <div class="modal fade" [id]="'requestModal' + request?.id" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            <strong>{{message?.title}}</strong>
+            <strong>Anfrage akzeptieren</strong>
           </h5>
           <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          {{message?.text}}
+          Möchtest du die Anfrage von {{request?.user?.firstname}} {{request?.user?.lastname}} annehmen?
+          <br>
+          Durch die Annahme wird der Status des Angebots aktualisiert.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary"
                   data-bs-dismiss="modal">Schließen</button>
-          <button type="button" class="btn btn-primary" [routerLink]="'../offer/' + message?.offer?.id"
-                  data-bs-dismiss="modal" >Zum Angebot</button>
+          <button type="button" class="btn btn-primary" (click)="acceptRequest(request?.id, request?.user?.id, request?.offer?.id)"
+                  data-bs-dismiss="modal">Zusagen</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!--  -->
-  <div class="modal fade" [id]="'messageModalDelete' + message?.id" tabindex="-1" role="dialog"
+  <!-- Request ablehnen -->
+  <div class="modal fade" [id]="'requestModalDecline' + request?.id" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel2">
-            <strong>Nachricht löschen</strong>
+            <strong>Anfrage ablehnen</strong>
           </h5>
           <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Möchtest du diese Nachricht löschen?
+          Möchtest du diese Anfrage ablehnen?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-          <button type="button" class="btn btn-primary" (click)="deleteMessage(message?.id)"
-                  data-bs-dismiss="modal">Löschen</button>
+          <button type="button" class="btn btn-primary" (click)="declineRequest(request?.id)"
+                  data-bs-dismiss="modal">Ablehnen</button>
         </div>
       </div>
     </div>
   </div>
 
 </div>
-

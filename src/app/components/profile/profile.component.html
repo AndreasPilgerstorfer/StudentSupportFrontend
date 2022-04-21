@@ -62,7 +62,7 @@
 
       <p *ngIf="messages && messages.length == 0">Du hast keine neuen Benachrichtigungen.</p>
 
-      <!-- hier kommen die Angebote rein -->
+      <!-- hier kommen die Nachrichten rein -->
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div *ngFor="let message of messages" (reloadMessages)="getTeacherMessages()"
              class="studSup-message-overview-item" [message]="message"></div>
@@ -71,5 +71,19 @@
   </div>
 
   <!-- Teacher Request Overview -->
+  <div *ngIf="!isStudent" class="mt-5">
+    <h3 class="card-header sub-heading"><strong>Anfragen</strong></h3>
+
+    <div class="container-fluid padding profile-offer-overview">
+
+      <p *ngIf="requests && requests.length == 0">Du hast keine neuen Anfragen.</p>
+
+      <!-- hier kommen die Anfragen rein -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let request of requests" (reloadRequests)="getPendingTeacherRequests()"
+             class="studSup-request-overview-item" [request]="request"></div>
+      </div>
+    </div>
+  </div>
 
 </div>
