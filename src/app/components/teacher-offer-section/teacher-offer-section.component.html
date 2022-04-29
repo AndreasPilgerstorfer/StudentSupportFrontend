@@ -1,0 +1,24 @@
+<div class="container-fluid padding wrapper teacher-offer-section">
+
+  <div class="mt-3">
+    <studSup-heading [title]="'Meine Angebote'"></studSup-heading>
+  </div>
+
+  <div class="mt-4">
+    <div class="container-fluid padding teacher-offer-section">
+
+      <p *ngIf="offers && offers.length == 0">Du hast noch keine Angebote erstellt.</p>
+
+      <div *ngIf="!offers" class="ui active dimmer">
+        <div class="ui large text loader"></div>
+      </div>
+
+      <!-- hier kommen die Angebote rein -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let offer of offers" (reloadOffers)="getOffersByTeacherID()"
+             class="studSup-teacher-offer-section-item" [offer]="offer"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -10,11 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public isCollapsed = true;
+  public isTeacherLoggedIn = true;       // TODO Change Logic
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
-
 }

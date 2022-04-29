@@ -34,6 +34,12 @@ export class OfferService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  // get all offer by userID student
+  findByTeacherId(id: any): Observable<Array<Offer>> {
+    return this.http.get<Array<Offer>>(`${this.api}/findByUserIDTeacher/${id}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   //update Offer
   updateOffer(id: any, requestBody: any) {
     return this.http.put(`${this.api}/${id}`, requestBody)

@@ -15,8 +15,9 @@
       <!-- Desktop Links -->
       <div class="collapse navbar-collapse" >
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a routerLink="./lva-overview" routerLinkActive="active-nav-link" class="nav-link">LVA Übersicht</a>
+          <li class="nav-item"><a routerLink="./lva-overview" routerLinkActive="active-nav-link" class="nav-link">LVA Übersicht</a></li>
+          <li *ngIf="isTeacherLoggedIn" class="nav-item">
+            <a routerLink="./offer-section" routerLinkActive="active-nav-link" class="nav-link">Meine Angebote</a>
           </li>
         </ul>
       </div>
@@ -29,6 +30,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a routerLink="./lva-overview" routerLinkActive="active-nav-link" class="nav-link">LVA Übersicht</a>
+          </li>
+          <li *ngIf="isTeacherLoggedIn" class="nav-item">
+            <a routerLink="./offer-section" routerLinkActive="active-nav-link" class="nav-link">Meine Angebote</a>
           </li>
         </ul>
       </div>

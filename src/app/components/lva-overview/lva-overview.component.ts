@@ -12,7 +12,7 @@ import {Course} from "../../shared/course";
 export class LvaOverviewComponent implements OnInit {
 
   public title = "LVA Übersicht";
-  public courses: Course[] = [];
+  public courses: Course[] | undefined = undefined;
 
   constructor(
     private cs: CourseService

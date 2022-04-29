@@ -7,6 +7,7 @@ import {LvaDetailComponent} from "./components/lva-detail/lva-detail.component";
 import {LoginComponent} from "./components/login/login.component";
 import {OfferDetailComponent} from "./components/offer-detail/offer-detail.component";
 import {ProfileComponent} from "./components/profile/profile.component";
+import {TeacherOfferSectionComponent} from "./components/teacher-offer-section/teacher-offer-section.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'lva-overview/:lva-id', component: LvaDetailComponent},
   {path: 'offer/:offer-id', component: OfferDetailComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'offer-section', component: TeacherOfferSectionComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ]
 

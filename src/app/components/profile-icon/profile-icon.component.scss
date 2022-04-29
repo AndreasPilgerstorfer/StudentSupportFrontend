@@ -9,6 +9,7 @@
     font-size: 25px;
   }
 
+
   .menu__item {
     position: relative;
     margin-right: 1.125rem;
@@ -109,10 +110,9 @@
   }
 
   .header__menu-menu hr {
-    width: 10%;
     height: 1px;
     border: none;
-    background-color: #000;
+    background-color: black;
   }
 
   .header__menu-menu .header__link:hover {

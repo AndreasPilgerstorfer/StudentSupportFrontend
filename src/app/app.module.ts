@@ -25,11 +25,15 @@ import {ToastrModule} from "ngx-toastr";
 import {OfferOverviewComponent} from './components/offer-overview/offer-overview.component';
 import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
 import { OfferOverviewItemComponent } from './components/offer-overview-item/offer-overview-item.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileStudentOfferOverviewItemComponent } from './components/profile-student-offer-overview-item/profile-student-offer-overview-item.component';
 import { MessageOverviewItemComponent } from './components/message-overview-item/message-overview-item.component';
 import { RequestOverviewItemComponent } from './components/request-overview-item/request-overview-item.component';
+import { TeacherOfferSectionComponent } from './components/teacher-offer-section/teacher-offer-section.component';
+import { TeacherOfferSectionItemComponent } from './components/teacher-offer-section-item/teacher-offer-section-item.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -53,6 +57,8 @@ import { RequestOverviewItemComponent } from './components/request-overview-item
     ProfileStudentOfferOverviewItemComponent,
     MessageOverviewItemComponent,
     RequestOverviewItemComponent,
+    TeacherOfferSectionComponent,
+    TeacherOfferSectionItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,10 @@ import { RequestOverviewItemComponent } from './components/request-overview-item
     FontAwesomeModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [CourseService, OfferService],
   bootstrap: [AppComponent]

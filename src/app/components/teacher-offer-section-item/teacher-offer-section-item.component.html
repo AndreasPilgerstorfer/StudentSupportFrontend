@@ -1,0 +1,53 @@
+<div class="studSup-offer-section-item">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex">
+        <p class="card-title-profile">{{offer?.title}}</p>
+      </div>
+      <div class="btn-container d-flex">
+        <a class="custom-button spacing-right" [routerLink]="'../offer/' + offer?.id">Zum Angebot</a>
+        <div class="button text-center spacing">{{offer?.state}}</div>
+        <a [attr.data-bs-target]="'#offerModalState' + offer?.id" data-bs-toggle="modal"
+           class="custom-button">Status ändern</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verändern -->
+  <div class="modal fade" [id]="'offerModalState' + offer?.id" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <strong>Status ändern</strong>
+          </h5>
+          <button type="button" (click)="showErrorMessage = false"
+                  class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Um den Status von "{{currentValue}}" zu ändern selektiere den neuen Status.</p>
+
+          <select class="form-select" [(ngModel)]="selectedValue">
+            <option *ngFor="let state of possibleStates" value="{{state}}">
+              {{state}}
+            </option>
+          </select>
+
+          <p *ngIf="showErrorMessage" class="error-text">Wähle einen Status aus!</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" #close
+                  data-bs-dismiss="modal" (click)="showErrorMessage = false" >Schließen</button>
+          <button type="button" class="btn btn-primary" (click)="changeState(offer?.id)">Status ändern</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

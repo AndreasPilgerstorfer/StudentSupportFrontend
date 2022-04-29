@@ -1,0 +1,70 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.studSup-offer-section-item {
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @media (min-width: 905px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .btn-container {
+    margin-top: 20px;
+
+    @media (min-width: 905px) {
+      margin-top: 0;
+    }
+  }
+
+  .custom-button {
+    &.spacing {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+
+    padding: 5px;
+    border: 2px solid black;
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: studSup-color(orange);
+      color: white;
+    }
+  }
+
+  .button{
+    padding: 5px;
+    border: 2px solid black;
+    color: white;
+    text-decoration: none;
+    background-color: studSup-color(teal);
+    align-items: center;
+    text-align: center;
+    display: flex;
+
+    &.spacing {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .modal-close-btn {
+    background-color: white;
+    border: none;
+    font-size: 30px;
+  }
+
+  .error-text {
+    color: red;
+  }
+}

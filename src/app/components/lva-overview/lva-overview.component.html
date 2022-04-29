@@ -1,7 +1,7 @@
 <div class="container-fluid padding wrapper lva-overview">
   <studSup-heading [title]="title"></studSup-heading>
 
-  <div *ngIf="!courses || courses && !courses.length" class="ui active dimmer">
+  <div *ngIf="!courses" class="ui active dimmer">
     <div class="ui large text loader"></div>
   </div>
 

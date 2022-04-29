@@ -1,0 +1,14 @@
+.teacher-offer-section {
+  &.wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+  }
+
+  .studSup-teacher-offer-section-item {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+}
