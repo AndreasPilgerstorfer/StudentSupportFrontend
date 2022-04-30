@@ -34,6 +34,7 @@ import { TeacherOfferSectionComponent } from './components/teacher-offer-section
 import { TeacherOfferSectionItemComponent } from './components/teacher-offer-section-item/teacher-offer-section-item.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import { OfferFormComponent } from './components/offer-form/offer-form.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {MatSelectModule} from "@angular/material/select";
     RequestOverviewItemComponent,
     TeacherOfferSectionComponent,
     TeacherOfferSectionItemComponent,
+    OfferFormComponent,
   ],
   imports: [
     BrowserModule,

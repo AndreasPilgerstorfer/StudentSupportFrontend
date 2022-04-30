@@ -1,0 +1,118 @@
+<div class="adminActions">
+  <a class="adminButton" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasExample">
+    <i class="large material-icons md-48" *ngIf="!updateOffer">add</i>
+  </a>
+</div>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true"
+     data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
+     aria-labelledby="offcanvasScrollingLabel">
+
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title" *ngIf="!updateOffer"> Angebot hinzufügen  </h4>
+    <h4 class="offcanvas-title" *ngIf="updateOffer"> Angebot aktualisieren  </h4>
+    <button type="button" class="btn-close text-reset"
+            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <form class="offcanvas-body" [formGroup]="offerForm" (ngSubmit)="submitForm()">
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Titel:*</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="title">
+        </div>
+        <div *ngIf="errors['title']" class="ui negative message mb-1">
+          {{errors['title']}}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="col">
+        <label for="exampleFormControlSelect" class="form-label">LVA:*</label>
+        <select class="form-select mb-3" aria-label="Default select example" id="exampleFormControlSelect"
+                formControlName="course" required>
+          <option *ngFor="let course of courses" [value]="course.id">
+            {{course.title}}
+          </option>
+        </select>
+      </div>
+      <div *ngIf="errors['course']" class="ui negative message">
+        {{errors['course']}}
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput2" class="form-label">Von:*</label>
+          <input type="time" class="form-control" id="exampleFormControlInput2" formControlName="from">
+        </div>
+        <div *ngIf="errors['from']" class="ui negative message">
+          {{errors['from']}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput3" class="form-label">Bis:*</label>
+          <input type="time" class="form-control" id="exampleFormControlInput3" formControlName="to">
+        </div>
+        <div *ngIf="errors['to']" class="ui negative message mb-1">
+          {{errors['to']}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput4" class="form-label">Datum:*</label>
+          <input type="date" class="form-control" id="exampleFormControlInput4" formControlName="date">
+        </div>
+        <div *ngIf="errors['date']" class="ui negative message mb-1">
+          {{errors['date']}}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea2" class="form-label">Beschreibung:*</label>
+      <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" formControlName="description"></textarea>
+      <div *ngIf="errors['description']" class="ui negative message">
+        {{errors['description']}}
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput5" class="form-label">Bild-Url:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput5" formControlName="imageUrl">
+        </div>
+        <div *ngIf="errors['imageUrl']" class="ui negative message">
+          {{errors['imageUrl']}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput6" class="form-label">Bild-Titel:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput6" formControlName="imageTitle">
+        </div>
+        <div *ngIf="errors['imageTitle']" class="ui negative message">
+          {{errors['imageTitle']}}
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-3" [disabled]="offerForm.invalid">Erstellen</button>
+
+  </form>
+</div>

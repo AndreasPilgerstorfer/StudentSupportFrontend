@@ -1,0 +1,44 @@
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.adminActions {
+  position: fixed;
+  background-color: studSup-color(orange);
+  height: 60px;
+  width: 60px;
+  border-radius: 32px;
+  transition: height 300ms;
+  transition-timing-function: ease;
+  text-align: center;
+  overflow: hidden;
+  bottom: 80px;
+  right: 50px;
+  z-index: 888;
+}
+
+.adminActions:hover a {
+  transform: rotate(180deg);
+}
+
+.adminButton {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: block;
+  color: #fff;
+  text-align: center;
+  bottom: 90px;
+  margin: auto;
+  right: 0;
+  transition: transform 300ms;
+  background-color: var(--orange);
+  z-index: 888;
+}
+
+.adminButton i {
+  margin-top: 14px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}

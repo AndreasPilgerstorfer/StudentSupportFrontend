@@ -7,6 +7,10 @@
   <div class="mt-4">
     <div class="container-fluid padding teacher-offer-section">
 
+      <div class="text-center mb-3">
+        Klick auf das Plus Symbol um neue Angebote zu erstellen
+      </div>
+
       <p *ngIf="offers && offers.length == 0">Du hast noch keine Angebote erstellt.</p>
 
       <div *ngIf="!offers" class="ui active dimmer">
@@ -18,6 +22,8 @@
         <div *ngFor="let offer of offers" (reloadOffers)="getOffersByTeacherID()"
              class="studSup-teacher-offer-section-item" [offer]="offer"></div>
       </div>
+
+      <studSup-offer-form [offerId]="undefined"></studSup-offer-form>
     </div>
   </div>
 

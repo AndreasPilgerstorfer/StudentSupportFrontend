@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Offer} from "./offer";
-import {Course} from "./course";
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +42,12 @@ export class OfferService {
   //update Offer
   updateOffer(id: any, requestBody: any) {
     return this.http.put(`${this.api}/${id}`, requestBody)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  //create Offer
+  create(offer: any): Observable<any> {
+    return this.http.post(`${this.api}`, offer)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
