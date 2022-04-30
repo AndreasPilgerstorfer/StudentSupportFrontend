@@ -1,6 +1,7 @@
 <div class="adminActions">
   <a class="adminButton" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasExample">
     <i class="large material-icons md-48" *ngIf="!updateOffer">add</i>
+    <i class="large material-icons md-48" *ngIf="updateOffer">edit</i>
   </a>
 </div>
 
@@ -11,7 +12,7 @@
   <div class="offcanvas-header">
     <h4 class="offcanvas-title" *ngIf="!updateOffer"> Angebot hinzufügen  </h4>
     <h4 class="offcanvas-title" *ngIf="updateOffer"> Angebot aktualisieren  </h4>
-    <button type="button" class="btn-close text-reset"
+    <button type="button" class="btn-close text-reset close" #close
             data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 

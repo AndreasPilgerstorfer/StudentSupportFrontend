@@ -23,7 +23,9 @@
              class="studSup-teacher-offer-section-item" [offer]="offer"></div>
       </div>
 
-      <studSup-offer-form [offerId]="undefined"></studSup-offer-form>
+      <studSup-offer-form
+        [offerId]="undefined" (reloadTeacherOffers)="getOffersByTeacherID()">
+      </studSup-offer-form>
     </div>
   </div>
 

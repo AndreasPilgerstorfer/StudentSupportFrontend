@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Offer} from "../../shared/offer";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -19,7 +19,10 @@ import {ToastrService} from "ngx-toastr";
 })
 export class OfferFormComponent implements OnInit {
 
-  @Input() offerId: number | undefined;
+  @Input() offerId: any | undefined ;
+  @Output() reloadTeacherOffers= new EventEmitter<any>();
+  @ViewChild('close') close: ElementRef<HTMLElement> | undefined;
+
   public offer: Offer = OfferFactory.empty();
   public updateOffer: boolean = false;
   public errors: { [key: string]: string } = {};
@@ -115,21 +118,23 @@ export class OfferFormComponent implements OnInit {
       }
     }
 
-    console.log(jsonRequest);
-
     if (this.updateOffer) {
       //updateForm
       //TODO: update Offer ///////////////////////////////////////
     } else {
       //new Form
+
       this.os.create(jsonRequest).subscribe(res => {
         // Formular zurücksetzen
         this.offer = OfferFactory.empty();
         this.offerForm.reset(this.offer);
         this.toastr.success("Angebot erfolgreich erstellt.", "Erstellt");
+        this.reloadTeacherOffers.emit();
       });
-
     }
+
+    let el: HTMLElement = this.close!.nativeElement;
+    el.click();
   }
 
   private setImagePlaceholder(){

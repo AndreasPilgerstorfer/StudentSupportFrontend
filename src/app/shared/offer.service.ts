@@ -51,6 +51,12 @@ export class OfferService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  // Delete Offer
+  remove(id: number): Observable<any> {
+    return this.http.delete(`${this.api}/${id}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   //Error
   errorHandler(error: Error | any): Observable<any> {
     return throwError(error)

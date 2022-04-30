@@ -3,22 +3,31 @@
     <studSup-heading [title]="offer.title"></studSup-heading>
   </div>
 
+  <!-- Info -->
+  <div class="text-center mb-1" *ngIf="!isStudent">
+    Klick auf das Bearbeiten Symbol um das Angebot zu editieren
+  </div>
+
   <!-- Buttons -->
   <div class="welcome pt-3 d-flex text-center justify-content-center">
     <div class="">
       <a [routerLink]="'../../lva-overview/' + offer.course.id" class="btn btn-outline-dark btn-lg mb-4" id="back">Zurück</a>
     </div>
-    <div class="spacing-left">
+    <div class="spacing-left" *ngIf="!isStudent">
+      <a class="btn btn-outline-dark btn-lg mb-4"
+         data-bs-toggle="modal" data-bs-target="#deleteModal" >Angebot löschen</a>
+    </div>
+    <div class="spacing-left" *ngIf="offer.state == 'Offen' && isStudent">
       <a [routerLink]="'../../login'"
          class="btn btn-outline-dark btn-lg mb-4">Login für Anfrage</a>
     </div>
-    <div class="spacing-left" *ngIf="offer.state == 'open'">
+    <div class="spacing-left" *ngIf="offer.state == 'Offen' && isStudent">
       <a class="btn btn-outline-dark btn-lg mb-4"
          data-bs-toggle="modal" data-bs-target="#exampleModal">Anfrage</a>
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal Anfrage-->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -36,6 +45,28 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sendRequest()">Absenden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Löschen-->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+       aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel"><strong>Angebot löschen</strong></h5>
+          <button type="button" class="close modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Möchtest du dieses Angebot löschen?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteOffer()">Löschen</button>
         </div>
       </div>
     </div>
@@ -78,7 +109,7 @@
   </div>
 
   <!-- Message Form -->
-  <div class="mb-5 mt-2">
+  <div class="mb-5 mt-2" *ngIf="isStudent">
 
     <form [formGroup]="messageForm" (ngSubmit)="submitMessageForm()">
       <h3 class="card-header subject"><strong>Unpassende Daten ?</strong> - Kontakt</h3>
@@ -99,5 +130,21 @@
               [disabled]="messageForm.invalid">Absenden</button>
     </form>
   </div>
+
+  <!-- Registered Student -->
+  <div class="mb-5 mt-2" *ngIf="!isStudent && offer.state != 'Offen'">
+    <h3 class="card-header subject"><strong>Angemeldete/r</strong> Student/in</h3>
+
+    <div class="card student-card">
+      <div class="card-body">
+        <div class="d-flex">
+          <p class="card-title-profile">{{associatedStudent?.firstname}} {{associatedStudent?.lastname}}</p>
+          <p class="card-text">Mail: {{associatedStudent?.email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <studSup-offer-form *ngIf="offer.id != 0 && !isStudent" [offerId]="offer.id"></studSup-offer-form>
 
 </div>

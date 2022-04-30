@@ -35,6 +35,9 @@ import { TeacherOfferSectionItemComponent } from './components/teacher-offer-sec
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { OfferFormComponent } from './components/offer-form/offer-form.component';
+import {RequestService} from "./shared/request.service";
+import {MessageService} from "./shared/message.service";
+import {UserService} from "./shared/user.service";
 
 @NgModule({
   declarations: [
@@ -75,7 +78,7 @@ import { OfferFormComponent } from './components/offer-form/offer-form.component
     MatSelectModule,
     FormsModule
   ],
-  providers: [CourseService, OfferService],
+  providers: [CourseService, OfferService, RequestService, MessageService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

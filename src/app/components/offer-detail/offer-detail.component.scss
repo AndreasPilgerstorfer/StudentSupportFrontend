@@ -67,4 +67,27 @@
     border: none;
     font-size: 30px;
   }
+
+  .student-card {
+    .card-text{
+      margin-left: 10px;
+    }
+
+    .card-title-profile {
+      margin-bottom: 0 !important;
+      font-weight: bold;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      @media (min-width: 905px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
 }
