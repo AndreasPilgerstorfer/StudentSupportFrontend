@@ -55,7 +55,7 @@ export class OfferDetailComponent implements OnInit {
     this.initMessage();
   }
 
-  private getOfferAndUsers() {
+  public getOfferAndUsers() {
     this.os.getSingleOffer(this.params['offer-id']).subscribe(offer => {
       this.offer = offer;
       this.us.getSingleUser(this.offer.user.id).subscribe(teacher => this.teacher = teacher);

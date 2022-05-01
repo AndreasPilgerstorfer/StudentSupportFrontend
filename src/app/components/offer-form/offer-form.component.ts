@@ -19,8 +19,9 @@ import {ToastrService} from "ngx-toastr";
 })
 export class OfferFormComponent implements OnInit {
 
-  @Input() offerId: any | undefined ;
-  @Output() reloadTeacherOffers= new EventEmitter<any>();
+  @Input() offerId: any | undefined;
+  @Output() reloadTeacherOffers = new EventEmitter<any>();
+  @Output() reloadDetailOffer = new EventEmitter<any>();
   @ViewChild('close') close: ElementRef<HTMLElement> | undefined;
 
   public offer: Offer = OfferFactory.empty();
@@ -28,6 +29,8 @@ export class OfferFormComponent implements OnInit {
   public errors: { [key: string]: string } = {};
   public offerForm: FormGroup;
   public courses: Array<Course> = [];
+  public buttonText: string = "Erstellen";
+  public possibleStates: Array<String> = []
 
   constructor(
     private fb: FormBuilder,
@@ -43,8 +46,10 @@ export class OfferFormComponent implements OnInit {
   ngOnInit(): void {
     this.getAvailableCourses();
 
-    if(this.offerId) {
+    if (this.offerId) {
       this.updateOffer = true;
+      this.buttonText = "Update";
+      this.initPossibleStates();
 
       this.os.getSingleOffer(String(this.offerId)).subscribe(offer => {
         this.offer = offer;
@@ -53,6 +58,62 @@ export class OfferFormComponent implements OnInit {
     }
 
     this.initOffer();
+  }
+
+  public initPossibleStates() {
+    if (this.offer.state != "Offen") this.possibleStates.push("Offen");
+    if (this.offer.state != "Abgeschlossen") this.possibleStates.push("Abgeschlossen");
+    if (this.offer.state != "Nicht erschienen") this.possibleStates.push("Nicht erschienen");
+  }
+
+  public submitForm() {
+
+    this.setImagePlaceholder();
+
+    let state = "Offen";
+    if (this.updateOffer) {
+      state = this.offerForm.value.state;
+      if (state == "Offen") this.offer.associatedStudent = "none";
+    }
+
+    //TODO: change harcoded userID //////////////////////
+    const jsonRequest = {
+      "course_id": this.offerForm.value.course,
+      "user_id": 1,
+      "start_time": this.offerForm.value.from,
+      "end_time": this.offerForm.value.to,
+      "date": this.offerForm.value.date,
+      "title": this.offerForm.value.title,
+      "description": this.offerForm.value.description,
+      "state": state,
+      "associatedStudent": this.offer.associatedStudent,
+      "image_id": 1,
+      "image": {
+        "title": this.offerForm.value.imageTitle,
+        "url": this.offerForm.value.imageUrl
+      }
+    }
+
+    if (this.updateOffer) {
+      //updateForm
+      this.os.updateOffer(this.offer.id, jsonRequest).subscribe(res => {
+        this.toastr.success("Angebot erfolgreich aktualisiert", "Aktualisiert");
+        this.reloadDetailOffer.emit();
+      });
+
+    } else {
+      //new Form
+      this.os.create(jsonRequest).subscribe(res => {
+        // Formular zurücksetzen
+        this.offer = OfferFactory.empty();
+        this.offerForm.reset(this.offer);
+        this.toastr.success("Angebot erfolgreich erstellt.", "Erstellt");
+        this.reloadTeacherOffers.emit();
+      });
+    }
+
+    let el: HTMLElement = this.close!.nativeElement;
+    el.click();
   }
 
   private getAvailableCourses() {
@@ -65,14 +126,20 @@ export class OfferFormComponent implements OnInit {
 
     this.offerForm = this.fb.group({
       title: [this.offer.title, Validators.required],
-      course: ['', [Validators.required, OfferValidators.hasSelectedCourse]],
       from: [this.offer.start_time, Validators.required],
       to: [this.offer.end_time, Validators.required],
-      date: ['', [Validators.required, OfferValidators.futureDate]],
+      date: [this.offer.date, [Validators.required, OfferValidators.futureDate]],
       description: [this.offer.description, Validators.required],
       imageUrl: [this.offer.image.url],
       imageTitle: [this.offer.image.title],
     })
+
+    if (this.updateOffer) {
+      this.offerForm.addControl('course', this.fb.control(this.offer.course.id, [Validators.required]));
+      this.offerForm.addControl('state', this.fb.control(this.offer.state, [Validators.required]));
+    } else {
+      this.offerForm.addControl('course', this.fb.control('', [Validators.required]));
+    }
 
     // Immer wenn sich die Fehler verändern
     this.offerForm.statusChanges.subscribe(() => {
@@ -96,53 +163,12 @@ export class OfferFormComponent implements OnInit {
     }
   }
 
-  public submitForm() {
-
-    this.setImagePlaceholder();
-
-    //TODO: change harcoded userID //////////////////////
-    const jsonRequest = {
-      "course_id": this.offerForm.value.course,
-      "user_id": 1,
-      "start_time": this.offerForm.value.from,
-      "end_time": this.offerForm.value.to,
-      "date": this.offerForm.value.date,
-      "title": this.offerForm.value.title,
-      "description": this.offerForm.value.description,
-      "state": "Offen",
-      "associatedStudent": "none",
-      "image_id": 1,
-      "image": {
-        "title": this.offerForm.value.imageTitle,
-        "url": this.offerForm.value.imageUrl
-      }
-    }
-
-    if (this.updateOffer) {
-      //updateForm
-      //TODO: update Offer ///////////////////////////////////////
-    } else {
-      //new Form
-
-      this.os.create(jsonRequest).subscribe(res => {
-        // Formular zurücksetzen
-        this.offer = OfferFactory.empty();
-        this.offerForm.reset(this.offer);
-        this.toastr.success("Angebot erfolgreich erstellt.", "Erstellt");
-        this.reloadTeacherOffers.emit();
-      });
-    }
-
-    let el: HTMLElement = this.close!.nativeElement;
-    el.click();
-  }
-
-  private setImagePlaceholder(){
-    if (this.offerForm.value.imageUrl == ""){
+  private setImagePlaceholder() {
+    if (this.offerForm.value.imageUrl == "") {
       this.offerForm.value.imageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
     }
 
-    if (this.offerForm.value.imageTitle == ""){
+    if (this.offerForm.value.imageTitle == "") {
       this.offerForm.value.imageTitle = "Platzhalter Bild";
     }
   }

@@ -145,6 +145,8 @@
     </div>
   </div>
 
-  <studSup-offer-form *ngIf="offer.id != 0 && !isStudent" [offerId]="offer.id"></studSup-offer-form>
+  <studSup-offer-form *ngIf="offer.id != 0 && !isStudent" [offerId]="offer.id"
+    (reloadDetailOffer)="getOfferAndUsers()">
+  </studSup-offer-form>
 
 </div>
