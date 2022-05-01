@@ -42,3 +42,30 @@
   color: #fff;
   cursor: pointer;
 }
+
+.offer-form {
+  .custom-btn {
+    border-radius: 25px;
+    min-width: 0;
+    background: studSup-color(orange);
+    border: 1px solid studSup-color(orange);
+    padding: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $font-weight-bold;
+    width: 90px;
+
+    &:hover, &:focus {
+      background: studSup-color(dark-orange);
+      border-color: studSup-color(dark-orange);
+      color: white;
+    }
+
+    span {
+      padding: 12px 20px 12px 20px;
+      font-size: 20px;
+    }
+  }
+}
