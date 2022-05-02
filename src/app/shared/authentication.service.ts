@@ -40,6 +40,10 @@ export class AuthenticationService {
     return Number.parseInt(<string>sessionStorage.getItem("userId"));
   }
 
+  public getCurrentUserRole() {
+    return Number.parseInt(<string>sessionStorage.getItem("is_student"));
+  }
+
   logout() {
     this.http.post(`${this.api}/logout`, {});
     sessionStorage.removeItem("token");

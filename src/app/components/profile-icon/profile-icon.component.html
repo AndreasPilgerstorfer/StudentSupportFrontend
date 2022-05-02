@@ -6,12 +6,12 @@
     </label>
     <ul role="menu" class="header__menu-menu menu" *ngIf="!isLoggedIn">
       <li role="menuitem" class="menu__item">
-        <a class="header__title link header__link profile-link" routerLink="/login">Log In</a>
+        <a class="header__title link header__link profile-link"  routerLink="/login">Log In</a>
       </li>
     </ul>
     <ul role="menu" class="header__menu-menu menu" *ngIf="isLoggedIn">
       <li role="menuitem" class="menu__item">
-        <a class="header__title link header__link profile-link" routerLink="/login">Logout</a>
+        <a class="header__title link header__link profile-link" (click)="logout()">Logout</a>
       </li>
       <hr class="seperator"/>
       <li role="menuitem" class="menu__item">

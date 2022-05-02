@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {faUser} from '@fortawesome/free-solid-svg-icons';
+import {AuthenticationService} from "../../shared/authentication.service";
+import {NgxGlobalEventsService} from "ngx-global-events";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'profile-icon',
@@ -10,14 +13,27 @@ import {faUser} from '@fortawesome/free-solid-svg-icons';
 })
 export class ProfileIconComponent implements OnInit {
 
-  //TODO: Change to Dynamic Value
-  public isLoggedIn = true;
+  public isLoggedIn: boolean;
   public userIcon = faUser;
+  public checked = false;
 
-  constructor() {
+  constructor(
+    private authService: AuthenticationService,
+    private globalEventsService: NgxGlobalEventsService,
+    private router: Router,
+  ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   ngOnInit(): void {
+    this.globalEventsService.get("reloadProfileIcon").subscribe(() => {
+      this.isLoggedIn = this.authService.isLoggedIn();
+    });
   }
 
+  logout() {
+    this.authService.logout();
+    this.globalEventsService.emit("reloadProfileIcon");
+    this.router.navigateByUrl("/");
+  }
 }

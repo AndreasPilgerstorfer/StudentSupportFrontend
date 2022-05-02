@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {LoginFormErrorMessages} from "./login-error-messages";
 import {AuthenticationService} from "../../shared/authentication.service";
+import {NgxGlobalEventsService} from "ngx-global-events";
 
 interface Response {
   access_token: string;
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private globalEventsService: NgxGlobalEventsService
   ) {
     this.loginForm = this.fb.group({});
   }
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(val.email, val.password).subscribe((res:any) => {
         this.toastr.success("Eingeloggt", "Login erfolgreich");
         this.authService.setSessionStorage((res as Response).access_token); // cast auf Interface Response
+        this.globalEventsService.emit("reloadProfileIcon");
         this.router.navigateByUrl("/");
       });
     }
