@@ -15,7 +15,7 @@
 
             <div class="d-flex justify-content-center form_container">
 
-              <form>
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
                 <div>
                   <div class="d-flex justify-content-center links mb-3">
                     Willkommen bei Student Support !
@@ -27,16 +27,19 @@
                       <i class="material-icons ">person</i>
                     </span>
                   </div>
-                  <input type="emial" id="eamil" name="" class="form-control input_email" value="" placeholder="E-Mail">
+                  <input type="email" id="email" required
+                         pattern="(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+\/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+\/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)"
+                         formControlName="email" class="form-control input_email" placeholder="E-Mail">
                 </div>
                 <div class="input-group mb-2">
                   <div class="input-group-append">
                     <span class="input-group-text"><i class="material-icons ">lock</i></span>
                   </div>
-                  <input type="password" id="password" name="" class="form-control input_pass" value="" placeholder="Passwort">
+                  <input type="password" id="password" formControlName="password" class="form-control input_pass" placeholder="Passwort">
                 </div>
                 <div class="d-flex justify-content-center mt-3 login_container">
-                  <a href="" id="login-submit" class="btn login_btn">Login</a>
+                  <button id="login-submit" type="submit" class="btn mb-3 login_btn"
+                          [disabled]="loginForm.invalid">Login</button>
                 </div>
 
                 <div class="mt-2 mb-2">
@@ -54,5 +57,13 @@
         </div>
       </div>
     </div>
+
+    <div *ngIf="errors['password']" class="ui negative message mb-1">
+      {{errors['password']}}
+    </div>
+    <div *ngIf="errors['email']" class="ui negative message mb-1">
+      {{errors['email']}}
+    </div>
+
   </div>
 </div>

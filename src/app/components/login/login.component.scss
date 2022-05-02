@@ -87,7 +87,7 @@
   .input_user,
   .input_pass:focus {
     box-shadow: none !important;
-    outline: 0px !important;
+    outline: 0 !important;
   }
 
   .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
@@ -129,5 +129,6 @@
 
   .loginBox {
     margin-top: 50px;
+    flex-direction: column;
   }
 }

@@ -17,7 +17,7 @@ import {ArticleComponent} from './components/article/article.component';
 import {LvaOverviewComponent} from './components/lva-overview/lva-overview.component';
 import {CourseService} from "./shared/course.service";
 import {OfferService} from "./shared/offer.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {LvaOverviewItemComponent} from './components/lva-overview-item/lva-overview-item.component';
 import {LvaDetailComponent} from './components/lva-detail/lva-detail.component';
 import {LoginComponent} from './components/login/login.component';
@@ -38,6 +38,9 @@ import { OfferFormComponent } from './components/offer-form/offer-form.component
 import {RequestService} from "./shared/request.service";
 import {MessageService} from "./shared/message.service";
 import {UserService} from "./shared/user.service";
+import {AuthenticationService} from "./shared/authentication.service";
+import {TokenInterceptorService} from "./shared/token-interceptor.service";
+import {LoginInterceptorService} from "./shared/login-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -78,7 +81,24 @@ import {UserService} from "./shared/user.service";
     MatSelectModule,
     FormsModule
   ],
-  providers: [CourseService, OfferService, RequestService, MessageService, UserService],
+  providers: [
+    CourseService,
+    OfferService,
+    RequestService,
+    MessageService,
+    UserService,
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoginInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
