@@ -9,6 +9,9 @@ import {OfferService} from "../../shared/offer.service";
 import {Message} from "../../shared/message";
 import {MessageService} from "../../shared/message.service";
 import {RequestService} from "../../shared/request.service";
+import {AuthenticationService} from "../../shared/authentication.service";
+import {NgxGlobalEventsService} from "ngx-global-events";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'studSup-profile',
@@ -25,57 +28,60 @@ export class ProfileComponent implements OnInit {
   public requests: Request[] = [];
   public emailIcon = faEnvelope;
   public telephoneIcon = faPhone;
-  public isStudent = false;
+  public isStudent: number;
 
   constructor(
     private us: UserService,
     private os: OfferService,
     private rs: RequestService,
-    private ms: MessageService
+    private ms: MessageService,
+    private authService: AuthenticationService,
+    private globalEventsService: NgxGlobalEventsService,
+    private router: Router
   ) {
+    this.isStudent = this.authService.getCurrentUserRole();
   }
 
   ngOnInit() {
-    this.getUser();
+    if(this.authService.isLoggedIn()){
+      this.getUser();
 
-    //TODO: create logiv to decide between teacher and student
-    if (this.isStudent) {
-      this.getStudentOffers();
-    } else {
-      this.getTeacherMessages();
-      this.getPendingTeacherRequests();
+      if (!!this.authService.getCurrentUserRole()) {
+        this.getStudentOffers();
+      } else {
+        this.getTeacherMessages();
+        this.getPendingTeacherRequests();
+      }
     }
   }
 
   getUser() {
-    //TODO Remove Hardcoded user id
-    this.us.getSingleUser(1).subscribe(user => {
+    this.us.getSingleUser(this.authService.getCurrentUserId()).subscribe(user => {
       this.user = user;
     });
   }
 
   getStudentOffers() {
-    //TODO Remove Hardcoded user id
-    this.os.findByAssociatedStudent(1).subscribe(res => {
+    this.os.findByAssociatedStudent(this.authService.getCurrentUserId()).subscribe(res => {
       this.offers = res;
     });
   }
 
   getTeacherMessages() {
-    //TODO Remove Hardcoded user id
-    this.ms.getByTeacherId(3).subscribe(res => {
+    this.ms.getByTeacherId(this.authService.getCurrentUserId()).subscribe(res => {
       this.messages = res;
     });
   }
 
   getPendingTeacherRequests() {
-    //TODO Remove Hardcoded user id
-    this.rs.getPendingByTeacherId(3).subscribe(res => {
+    this.rs.getPendingByTeacherId(this.authService.getCurrentUserId()).subscribe(res => {
       this.requests = res;
     });
   }
 
   logout() {
-    //TODO Logout User
+    this.authService.logout();
+    this.globalEventsService.emit("reloadProfileIcon");
+    this.router.navigateByUrl("/");
   }
 }
