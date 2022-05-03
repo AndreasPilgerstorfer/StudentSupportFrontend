@@ -14,6 +14,7 @@ import {MessageFormErrorMessages} from "./message-form-error-message";
 import {MessageService} from "../../shared/message.service";
 import {ToastrService} from "ngx-toastr";
 import {RequestService} from "../../shared/request.service";
+import {AuthenticationService} from "../../shared/authentication.service";
 
 @Component({
   selector: 'studSup-offer-detail',
@@ -30,11 +31,10 @@ export class OfferDetailComponent implements OnInit {
   public emailIcon = faEnvelope;
   public telephoneIcon = faPhone;
   public messageForm: FormGroup;
-  private params: Params;
   public errors: { [key: string]: string } = {};
-  public message:Message = MessageFactory.empty();
-  //TODO: Change Hardcoded Stuff
-  public isStudent = false;
+  public message: Message = MessageFactory.empty();
+  public isStudent: boolean;
+  private params: Params;
 
   constructor(
     private os: OfferService,
@@ -44,10 +44,12 @@ export class OfferDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    public authService: AuthenticationService
   ) {
     this.params = this.route.snapshot.params;
     this.messageForm = this.fb.group({});
+    this.isStudent = this.authService.getCurrentUserRole() == 1;
   }
 
   ngOnInit() {
@@ -80,27 +82,12 @@ export class OfferDetailComponent implements OnInit {
     });
   }
 
-  private updateErrorMessages() {
-    this.errors = {};
-
-    for (const message of MessageFormErrorMessages) {
-      const control = this.messageForm.get(message.forControl);
-
-      if (control && control.dirty && control.invalid && control.errors
-        && control.errors[message.forValidator] && !this.errors[message.forControl]
-      ) {
-        this.errors[message.forControl] = message.text
-      }
-    }
-  }
-
-  public submitMessageForm(){
-    //TODO: Change Hardcoded user_id ///////////////////////////////////////////////////////////////
+  public submitMessageForm() {
     const requestBody = {
       title: this.messageForm.value.title,
       text: this.messageForm.value.text,
       offer_id: this.offer.id,
-      user_id: 1
+      user_id: this.authService.getCurrentUserId()
     }
 
     this.ms.create(requestBody).subscribe(res => {
@@ -112,10 +99,8 @@ export class OfferDetailComponent implements OnInit {
   }
 
   sendRequest() {
-    // TODO Change hardcoded user id - should be logged in user
     let request = {
-      id: 0,
-      user_id: 1,
+      user_id: this.authService.getCurrentUserId(),
       offer_id: this.offer.id,
       state: "pending"
     };
@@ -130,5 +115,19 @@ export class OfferDetailComponent implements OnInit {
       this.toastr.success("Angebot erfolgreich gelöscht.", "Gelöscht");
       this.router.navigate(["../../offer-section"], {relativeTo: this.route});
     });
+  }
+
+  private updateErrorMessages() {
+    this.errors = {};
+
+    for (const message of MessageFormErrorMessages) {
+      const control = this.messageForm.get(message.forControl);
+
+      if (control && control.dirty && control.invalid && control.errors
+        && control.errors[message.forValidator] && !this.errors[message.forControl]
+      ) {
+        this.errors[message.forControl] = message.text
+      }
+    }
   }
 }
