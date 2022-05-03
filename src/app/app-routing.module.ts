@@ -8,6 +8,8 @@ import {LoginComponent} from "./components/login/login.component";
 import {OfferDetailComponent} from "./components/offer-detail/offer-detail.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {TeacherOfferSectionComponent} from "./components/teacher-offer-section/teacher-offer-section.component";
+import {CanNavigateToProfileGuard} from "./can-navigate-to-profile.guard";
+import {CanNavigateToTeacherGuard} from "./can-navigate-to-teacher.guard";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,14 +20,15 @@ const routes: Routes = [
   {path: 'lva-overview', component: LvaOverviewComponent},
   {path: 'lva-overview/:lva-id', component: LvaDetailComponent},
   {path: 'offer/:offer-id', component: OfferDetailComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'offer-section', component: TeacherOfferSectionComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [CanNavigateToProfileGuard]},
+  {path: 'offer-section', component: TeacherOfferSectionComponent, canActivate: [CanNavigateToTeacherGuard]},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CanNavigateToProfileGuard, CanNavigateToTeacherGuard]
 })
 export class AppRoutingModule {
 }
