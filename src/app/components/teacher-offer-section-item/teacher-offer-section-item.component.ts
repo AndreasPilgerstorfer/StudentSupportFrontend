@@ -48,7 +48,7 @@ export class TeacherOfferSectionItemComponent implements OnInit {
 
       let requestBody;
 
-      if (this.selectedValue != "Offen") {
+      if (this.selectedValue == "Offen") {
         requestBody = {
           associatedStudent: "none",
           state: this.selectedValue
