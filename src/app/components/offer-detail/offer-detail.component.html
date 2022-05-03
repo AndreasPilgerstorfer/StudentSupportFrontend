@@ -109,7 +109,7 @@
   </div>
 
   <!-- Message Form -->
-  <div class="mb-5 mt-2" *ngIf="isStudent">
+  <div class="mb-5 mt-2" *ngIf="isStudent && offer.state == 'Offen'">
 
     <form [formGroup]="messageForm" (ngSubmit)="submitMessageForm()">
       <h3 class="card-header subject"><strong>Unpassende Daten ?</strong> - Kontakt</h3>
