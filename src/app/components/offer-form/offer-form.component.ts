@@ -9,6 +9,7 @@ import {OfferFactory} from "../../shared/offer-factory";
 import {OfferFormErrorMessages} from "./offer-form-error-messages";
 import {OfferValidators} from "./offer-validators";
 import {ToastrService} from "ngx-toastr";
+import {AuthenticationService} from "../../shared/authentication.service";
 
 @Component({
   selector: 'studSup-offer-form',
@@ -39,6 +40,7 @@ export class OfferFormComponent implements OnInit {
     private os: OfferService,
     private cs: CourseService,
     private toastr: ToastrService,
+    private authService: AuthenticationService,
   ) {
     this.offerForm = this.fb.group({});
   }
@@ -76,10 +78,9 @@ export class OfferFormComponent implements OnInit {
       if (state == "Offen") this.offer.associatedStudent = "none";
     }
 
-    //TODO: change harcoded userID //////////////////////
     const jsonRequest = {
       "course_id": this.offerForm.value.course,
-      "user_id": 1,
+      "user_id": this.authService.getCurrentUserId(),
       "start_time": this.offerForm.value.from,
       "end_time": this.offerForm.value.to,
       "date": this.offerForm.value.date,
