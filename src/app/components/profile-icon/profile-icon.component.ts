@@ -34,6 +34,7 @@ export class ProfileIconComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.globalEventsService.emit("reloadProfileIcon");
+    this.globalEventsService.emit("reloadNavigation");
     this.router.navigateByUrl("/");
   }
 }

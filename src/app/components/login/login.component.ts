@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success("Eingeloggt", "Login erfolgreich");
         this.authService.setSessionStorage((res as Response).access_token); // cast auf Interface Response
         this.globalEventsService.emit("reloadProfileIcon");
+        this.globalEventsService.emit("reloadNavigation");
         this.router.navigateByUrl("/");
       });
     }

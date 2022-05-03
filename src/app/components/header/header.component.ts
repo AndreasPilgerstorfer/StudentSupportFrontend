@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../shared/authentication.service";
+import {NgxGlobalEventsService} from "ngx-global-events";
 
 @Component({
   selector: 'studSup-header',
@@ -10,10 +12,21 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public isCollapsed = true;
-  public isTeacherLoggedIn = true;       // TODO Change Logic
+  public isTeacher: boolean;
+  public isLoggedIn: boolean;
 
-  constructor() { }
+  constructor(
+    private authService: AuthenticationService,
+    private globalEventsService: NgxGlobalEventsService,
+  ) {
+    this.isTeacher = this.authService.getCurrentUserRole() == 0
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
   ngOnInit(): void {
+    this.globalEventsService.get("reloadNavigation").subscribe(() => {
+      this.isTeacher = this.authService.getCurrentUserRole() == 0
+      this.isLoggedIn = this.authService.isLoggedIn();
+    });
   }
 }
