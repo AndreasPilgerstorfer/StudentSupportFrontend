@@ -59,9 +59,9 @@ export class TeacherOfferSectionItemComponent implements OnInit {
         }
       }
 
-      this.os.updateOffer(id, requestBody).subscribe(res=> {
+      this.os.updateOffer(id, requestBody).subscribe(res => {
+        this.reloadOffers.emit();
         this.toastr.success(this.selectedValue, "Status erfolgreich geändert");
-        this.reloadOffers.emit()
       });
 
     } else {
