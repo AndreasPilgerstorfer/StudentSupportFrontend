@@ -4,7 +4,8 @@
   </div>
 
   <!-- Info -->
-  <div class="text-center mb-1" *ngIf="authService.isLoggedIn() && !isStudent">
+  <div class="text-center mb-1" *ngIf="authService.isLoggedIn() && !isStudent
+     && authService.getCurrentUserId() == offer.user.id">
     Klick auf das Bearbeiten Symbol um das Angebot zu editieren
   </div>
 
@@ -13,7 +14,8 @@
     <div class="">
       <a [routerLink]="'../../lva-overview/' + offer.course.id" class="btn btn-outline-dark btn-lg mb-4" id="back">Zurück</a>
     </div>
-    <div class="spacing-left" *ngIf="authService.isLoggedIn() && !isStudent">
+    <div class="spacing-left" *ngIf="authService.isLoggedIn() && !isStudent
+      && authService.getCurrentUserId() == offer.user.id">
       <a class="btn btn-outline-dark btn-lg mb-4"
          data-bs-toggle="modal" data-bs-target="#deleteModal" >Angebot löschen</a>
     </div>
@@ -132,7 +134,8 @@
   </div>
 
   <!-- Registered Student -->
-  <div class="mb-5 mt-2" *ngIf="authService.isLoggedIn() && !isStudent && offer.state != 'Offen'">
+  <div class="mb-5 mt-2" *ngIf="authService.isLoggedIn() && !isStudent && offer.state != 'Offen'
+     && authService.getCurrentUserId() == offer.user.id">
     <h3 class="card-header subject"><strong>Angemeldete/r</strong> Student/in</h3>
 
     <div class="card student-card">
