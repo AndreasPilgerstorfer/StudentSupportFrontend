@@ -135,7 +135,7 @@
 
   <!-- Registered Student -->
   <div class="mb-5 mt-2" *ngIf="authService.isLoggedIn() && !isStudent && offer.state != 'Offen'
-     && authService.getCurrentUserId() == offer.user.id">
+     && authService.getCurrentUserId() == offer.user.id && offer.associatedStudent != 'none'">
     <h3 class="card-header subject"><strong>Angemeldete/r</strong> Student/in</h3>
 
     <div class="card student-card">
