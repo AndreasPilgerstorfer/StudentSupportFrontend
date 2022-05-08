@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -41,6 +41,10 @@ import {UserService} from "./shared/user.service";
 import {AuthenticationService} from "./shared/authentication.service";
 import {TokenInterceptorService} from "./shared/token-interceptor.service";
 import {LoginInterceptorService} from "./shared/login-interceptor.service";
+import {registerLocaleData} from "@angular/common";
+import localDe from "@angular/common/locales/de";
+
+registerLocaleData(localDe)
 
 @NgModule({
   declarations: [
@@ -97,6 +101,10 @@ import {LoginInterceptorService} from "./shared/login-interceptor.service";
       provide: HTTP_INTERCEPTORS,
       useClass: LoginInterceptorService,
       multi: true
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'de'
     }
   ],
   bootstrap: [AppComponent]

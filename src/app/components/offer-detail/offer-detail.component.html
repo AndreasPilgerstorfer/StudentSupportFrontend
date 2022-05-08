@@ -104,7 +104,7 @@
       <div class="card-body">
         <p class="card-text">{{offer.description}}</p>
         <p class="card-text"><strong>Angebotstatus:</strong> {{offer.state}}</p>
-        <p class="card-text"><strong>Datum:</strong> {{offer.date}}</p>
+        <p class="card-text"><strong>Datum:</strong> {{offer?.date | date: 'longDate'}}</p>
         <p class="card-text"><strong>Dauer:</strong> von {{offer.start_time}} bis {{offer.end_time}}</p>
       </div>
     </div>
